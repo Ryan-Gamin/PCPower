@@ -1090,6 +1090,22 @@ main {
     gap: 10px;
 }
 
+.builder-note {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: -8px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.builder-note i {
+    color: var(--accent-cyan);
+    width: 14px;
+    height: 14px;
+}
+
 .upgrade-row {
     display: flex;
     justify-content: space-between;
