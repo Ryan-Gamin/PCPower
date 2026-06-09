@@ -10,12 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const state = {
     currentSection: 'home',
     cart: [],
-    selectedBasePcId: 'budget',
+    selectedBasePcId: 'tier500',
     customizer: {
-        cpu: 'std',
-        gpu: 'std',
-        ram: 'std',
-        storage: 'std'
+        cpu: 'ryzen_5600',
+        gpu: 'rx_6700xt',
+        ram: 'ram_16gb',
+        storage: 'ssd_500gb'
     },
     promoApplied: null,
     promoDiscount: 0,
@@ -25,57 +25,133 @@ const state = {
 // PC Pre-Built Bundles Data
 const products = [
     {
-        id: 'budget',
-        name: 'The Budget Beast',
-        price: 349.00,
-        retailPrice: 549.00,
-        ecoSavings: '12.4kg e-waste | 150kg CO2',
-        description: 'Perfect entry-level gaming PC for esport titles like Fortnite, Valorant, and Minecraft at 1080p.',
-        image: 'assets/budget_beast.png',
+        id: 'tier200',
+        name: '£200 Esports Starter',
+        price: 200.00,
+        retailPrice: 320.00,
+        ecoSavings: '8.5kg e-waste | 110kg CO2',
+        description: 'Ultra-budget esport machine. Built with recycled parts to get you in the game cheap.',
+        image: '',
         category: 'budget',
         specs: [
-            { name: 'AMD Ryzen 5 3600 CPU', source: 'Refurbished' },
-            { name: 'NVIDIA GTX 1660 Super 6GB GPU', source: 'Refurbished' },
-            { name: '16GB DDR4 3200MHz RAM', source: 'Refurbished' },
-            { name: '512GB NVMe M.2 SSD', source: 'Brand New' },
-            { name: '500W 80+ Certified PSU', source: 'Brand New' },
-            { name: 'AeroCool Cylon RGB Case Black', source: 'Brand New' }
+            { name: 'AMD Ryzen 3 2200G CPU', source: 'Refurbished' },
+            { name: 'Radeon RX 570 4GB GPU', source: 'Refurbished' },
+            { name: '8GB DDR4 RAM', source: 'Refurbished' },
+            { name: '256GB SSD', source: 'Brand New' },
+            { name: '450W Gold Rated PSU', source: 'Brand New' },
+            { name: 'Sleek Micro-ATX Case', source: 'Brand New' }
         ]
     },
     {
-        id: 'mid',
-        name: 'The 1080p Crusader',
-        price: 499.00,
-        retailPrice: 749.00,
-        ecoSavings: '15.8kg e-waste | 190kg CO2',
-        description: 'High framerates at 1080p Ultra and entry-level 1440p gaming. Features beautiful customizable RGB lighting.',
-        image: 'assets/1080p_crusader.png',
+        id: 'tier300',
+        name: '£300 Esports Elite',
+        price: 300.00,
+        retailPrice: 480.00,
+        ecoSavings: '10.2kg e-waste | 130kg CO2',
+        description: 'Excellent 1080p gaming performance for competitive esports titles.',
+        image: '',
+        category: 'budget',
+        specs: [
+            { name: 'AMD Ryzen 3 2600 CPU', source: 'Refurbished' },
+            { name: 'Radeon RX 580 8GB GPU', source: 'Refurbished' },
+            { name: '8GB DDR4 RAM', source: 'Refurbished' },
+            { name: '256GB NVMe SSD', source: 'Brand New' },
+            { name: '500W Bronze PSU', source: 'Brand New' },
+            { name: 'Sleek Glass MicroATX Case', source: 'Brand New' }
+        ]
+    },
+    {
+        id: 'tier400',
+        name: '£400 Power Crusader',
+        price: 400.00,
+        retailPrice: 620.00,
+        ecoSavings: '12.4kg e-waste | 150kg CO2',
+        description: 'High-speed 1080p gaming with modern architecture and dedicated graphics.',
+        image: '',
         category: 'mid',
         specs: [
-            { name: 'AMD Ryzen 5 3600 CPU', source: 'Refurbished' },
-            { name: 'NVIDIA RTX 2060 Super 8GB GPU', source: 'Refurbished' },
-            { name: '16GB DDR4 RGB 3200MHz RAM', source: 'Refurbished' },
-            { name: '1TB NVMe M.2 SSD', source: 'Brand New' },
-            { name: '600W 80+ Gold Semi-Mod PSU', source: 'Brand New' },
-            { name: 'White Tempered Glass Mid-Tower Case', source: 'Brand New' }
+            { name: 'AMD Ryzen 5 4100 CPU', source: 'Refurbished' },
+            { name: 'Radeon RX 6500 XT 4GB GPU', source: 'Refurbished' },
+            { name: '16GB DDR4 RAM', source: 'Refurbished' },
+            { name: '500GB NVMe SSD', source: 'Brand New' },
+            { name: '500W Bronze PSU', source: 'Brand New' },
+            { name: 'Sleek Tempered Glass Case', source: 'Brand New' }
         ]
     },
     {
-        id: 'high',
-        name: 'Workstation Pro',
-        price: 799.00,
-        retailPrice: 1199.00,
-        ecoSavings: '20.1kg e-waste | 240kg CO2',
-        description: 'Designed for heavy multitasking, video editing, rendering, and high-end 1440p gaming. Quiet and powerful.',
-        image: 'assets/workstation_pro.png',
+        id: 'tier500',
+        name: '£500 Mid-Range Champion',
+        price: 500.00,
+        retailPrice: 790.00,
+        ecoSavings: '14.8kg e-waste | 180kg CO2',
+        description: 'Solid 1080p Ultra and entry-level 1440p gaming. Excellent performance per pound.',
+        image: '',
+        category: 'mid',
+        specs: [
+            { name: 'AMD Ryzen 5 5600 CPU', source: 'Refurbished' },
+            { name: 'Radeon RX 6700 XT 12GB GPU', source: 'Refurbished' },
+            { name: '16GB DDR4 RAM', source: 'Refurbished' },
+            { name: '500GB NVMe SSD', source: 'Brand New' },
+            { name: '500GB HDD Storage', source: 'Refurbished' },
+            { name: '500W Bronze PSU', source: 'Brand New' },
+            { name: 'Sleek Airflow Case', source: 'Brand New' }
+        ]
+    },
+    {
+        id: 'tier600',
+        name: '£600 Pro Performer',
+        price: 600.00,
+        retailPrice: 980.00,
+        ecoSavings: '17.2kg e-waste | 210kg CO2',
+        description: 'High-end 1080p and 1440p gaming machine. Smooth frame rates in AAA titles.',
+        image: '',
+        category: 'high',
+        specs: [
+            { name: 'AMD Ryzen 7 5700X CPU', source: 'Refurbished' },
+            { name: 'Radeon RX 6800 XT 16GB GPU', source: 'Refurbished' },
+            { name: '16GB DDR4 RAM', source: 'Refurbished' },
+            { name: '500GB NVMe SSD', source: 'Brand New' },
+            { name: '500GB HDD Storage', source: 'Refurbished' },
+            { name: '600W Gold PSU', source: 'Brand New' },
+            { name: 'Tempered Glass Case', source: 'Brand New' }
+        ]
+    },
+    {
+        id: 'tier700',
+        name: '£700 Ultimate Crusader',
+        price: 700.00,
+        retailPrice: 1150.00,
+        ecoSavings: '19.5kg e-waste | 240kg CO2',
+        description: 'Extreme high-performance gaming. Ready for 1440p Ultra and modern titles.',
+        image: '',
         category: 'high',
         specs: [
             { name: 'AMD Ryzen 7 5800X CPU', source: 'Refurbished' },
-            { name: 'NVIDIA RTX 3070 8GB GPU', source: 'Refurbished' },
-            { name: '32GB DDR4 3600MHz RAM', source: 'Refurbished' },
-            { name: '2TB NVMe M.2 SSD', source: 'Brand New' },
-            { name: '750W 80+ Gold Fully Mod PSU', source: 'Brand New' },
-            { name: 'Lian Li LANCOOL II Mesh Black Case', source: 'Brand New' }
+            { name: 'Radeon RX 6950 XT 16GB GPU', source: 'Refurbished' },
+            { name: '16GB DDR4 RAM', source: 'Refurbished' },
+            { name: '1TB NVMe Gen4 SSD', source: 'Brand New' },
+            { name: '1TB HDD Storage', source: 'Refurbished' },
+            { name: '700W Gold PSU', source: 'Brand New' },
+            { name: 'Premium Dual Chamber Case', source: 'Brand New' }
+        ]
+    },
+    {
+        id: 'tier800',
+        name: '£800 Elite Workstation',
+        price: 800.00,
+        retailPrice: 1380.00,
+        ecoSavings: '22.3kg e-waste | 270kg CO2',
+        description: 'Top-tier workstation and high-end 4K gaming rig. Zero compromises.',
+        image: '',
+        category: 'high',
+        specs: [
+            { name: 'AMD Ryzen 9 5900X CPU', source: 'Refurbished' },
+            { name: 'Radeon RX 7900 XT 20GB GPU', source: 'Refurbished' },
+            { name: '32GB DDR4 RAM', source: 'Refurbished' },
+            { name: '1TB NVMe Gen4 SSD', source: 'Brand New' },
+            { name: '2TB HDD Storage', source: 'Refurbished' },
+            { name: '750W Gold PSU', source: 'Brand New' },
+            { name: 'Panoramic Glass Case', source: 'Brand New' }
         ]
     }
 ];
@@ -83,24 +159,52 @@ const products = [
 // Configurator Upgrades Data
 const upgrades = {
     cpu: [
-        { id: 'std', name: 'Standard (Included)', price: 0, source: 'Refurbished' },
-        { id: 'up1', name: 'AMD Ryzen 5 5600X', price: 20, source: 'Refurbished' },
-        { id: 'up2', name: 'AMD Ryzen 7 5700X', price: 80, source: 'Refurbished' }
+        { id: 'ryzen_2200g', name: 'AMD Ryzen 3 2200G', price: 40, source: 'Refurbished' },
+        { id: 'ryzen_2600', name: 'AMD Ryzen 3 2600', price: 65, source: 'Refurbished' },
+        { id: 'ryzen_4100', name: 'AMD Ryzen 5 4100', price: 80, source: 'Refurbished' },
+        { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 115, source: 'Refurbished' },
+        { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 155, source: 'Refurbished' },
+        { id: 'ryzen_5800x', name: 'AMD Ryzen 7 5800X', price: 185, source: 'Refurbished' },
+        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 245, source: 'Refurbished' }
     ],
     gpu: [
-        { id: 'std', name: 'Standard (Included)', price: 0, source: 'Refurbished' },
-        { id: 'up1', name: 'NVIDIA RTX 3060 12GB', price: 50, source: 'Refurbished' },
-        { id: 'up2', name: 'NVIDIA RTX 3070 8GB', price: 150, source: 'Refurbished' }
+        { id: 'rx_570', name: 'Radeon RX 570 4GB', price: 60, source: 'Refurbished' },
+        { id: 'rx_580', name: 'Radeon RX 580 8GB', price: 80, source: 'Refurbished' },
+        { id: 'rx_6500xt', name: 'Radeon RX 6500 XT 4GB', price: 110, source: 'Refurbished' },
+        { id: 'rx_6700xt', name: 'Radeon RX 6700 XT 12GB', price: 240, source: 'Refurbished' },
+        { id: 'rx_6800xt', name: 'Radeon RX 6800 XT 16GB', price: 340, source: 'Refurbished' },
+        { id: 'rx_6950xt', name: 'Radeon RX 6950 XT 16GB', price: 460, source: 'Refurbished' },
+        { id: 'rx_7900xt', name: 'Radeon RX 7900 XT 20GB', price: 620, source: 'Refurbished' }
     ],
     ram: [
-        { id: 'std', name: 'Standard (Included)', price: 0, source: 'Refurbished' },
-        { id: 'up1', name: 'Upgrade to 32GB DDR4', price: 20, source: 'Refurbished' }
+        { id: 'ram_8gb', name: '8GB DDR4 RAM', price: 20, source: 'Refurbished' },
+        { id: 'ram_16gb', name: '16GB DDR4 RAM', price: 40, source: 'Refurbished' },
+        { id: 'ram_32gb', name: '32GB DDR4 RAM', price: 75, source: 'Refurbished' }
     ],
     storage: [
-        { id: 'std', name: 'Standard (Included)', price: 0, source: 'Brand New' },
-        { id: 'up1', name: 'Upgrade to 1TB NVMe SSD', price: 20, source: 'Brand New' },
-        { id: 'up2', name: 'Upgrade to 2TB NVMe SSD', price: 50, source: 'Brand New' }
+        { id: 'ssd_256gb', name: '256GB SSD', price: 15, source: 'Brand New' },
+        { id: 'ssd_500gb', name: '500GB NVMe SSD', price: 25, source: 'Brand New' },
+        { id: 'ssd_1tb', name: '1TB NVMe SSD', price: 50, source: 'Brand New' }
     ]
+};
+
+// Map each base PC ID to its standard parts
+const basePartsMapping = {
+    tier200: { cpu: 'ryzen_2200g', gpu: 'rx_570', ram: 'ram_8gb', storage: 'ssd_256gb' },
+    tier300: { cpu: 'ryzen_2600', gpu: 'rx_580', ram: 'ram_8gb', storage: 'ssd_256gb' },
+    tier400: { cpu: 'ryzen_4100', gpu: 'rx_6500xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
+    tier500: { cpu: 'ryzen_5600', gpu: 'rx_6700xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
+    tier600: { cpu: 'ryzen_5700x', gpu: 'rx_6800xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
+    tier700: { cpu: 'ryzen_5800x', gpu: 'rx_6950xt', ram: 'ram_16gb', storage: 'ssd_1tb' },
+    tier800: { cpu: 'ryzen_5900x', gpu: 'rx_7900xt', ram: 'ram_32gb', storage: 'ssd_1tb' }
+};
+
+// Part absolute pricing
+const partAbsolutePrices = {
+    ryzen_2200g: 40, ryzen_2600: 65, ryzen_4100: 80, ryzen_5600: 115, ryzen_5700x: 155, ryzen_5800x: 185, ryzen_5900x: 245,
+    rx_570: 60, rx_580: 80, rx_6500xt: 110, rx_6700xt: 240, rx_6800xt: 340, rx_6950xt: 460, rx_7900xt: 620,
+    ram_8gb: 20, ram_16gb: 40, ram_32gb: 75,
+    ssd_256gb: 15, ssd_500gb: 25, ssd_1tb: 50
 };
 
 // Constant Build Fee
@@ -182,15 +286,25 @@ function renderFeaturedProducts() {
         const card = document.createElement('div');
         card.className = 'product-card glass-card';
         
-        // Find CPU and GPU in specs to showcase
-        const cpuSpec = p.specs.find(s => s.name.includes('CPU'))?.name || '';
-        const gpuSpec = p.specs.find(s => s.name.includes('GPU'))?.name || '';
-        const ramSpec = p.specs.find(s => s.name.includes('RAM'))?.name || '';
-        const ssdSpec = p.specs.find(s => s.name.includes('SSD'))?.name || '';
+        let specsHtml = '';
+        p.specs.slice(0, 4).forEach((spec, sIdx) => {
+            const isHighlight = sIdx < 2;
+            const icon = spec.name.includes('CPU') ? 'cpu' : 
+                         spec.name.includes('GPU') ? 'zap' :
+                         spec.name.includes('RAM') ? 'database' : 'hard-drive';
+            
+            const sourceColor = spec.source === 'Refurbished' ? 'green-text' : 'cyan-text';
+            specsHtml += `
+                <li class="${isHighlight ? 'highlight-spec' : ''}">
+                    <i data-lucide="${icon}"></i>
+                    <span>${spec.name} <span class="${sourceColor}" style="font-size:0.75rem;">(${spec.source})</span></span>
+                </li>
+            `;
+        });
         
         card.innerHTML = `
-            <div class="product-img-container">
-                <img src="${p.image}" alt="${p.name}">
+            <div class="product-img-container text-gradient-banner">
+                <div class="tier-gradient-title">£${p.price.toFixed(0)} BUILD</div>
                 <span class="badge-used"><i data-lucide="leaf" style="width:12px;height:12px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Certified Refurbished</span>
                 <span class="price-saving-badge">Save £${savings.toFixed(0)}!</span>
             </div>
@@ -198,10 +312,7 @@ function renderFeaturedProducts() {
                 <h3>${p.name}</h3>
                 <p class="product-desc">${p.description}</p>
                 <ul class="product-specs">
-                    <li class="highlight-spec"><i data-lucide="cpu"></i> <span>£{cpuSpec}</span></li>
-                    <li class="highlight-spec"><i data-lucide="zap"></i> <span>£{gpuSpec}</span></li>
-                    <li><i data-lucide="database"></i> <span>£{ramSpec}</span></li>
-                    <li><i data-lucide="hard-drive"></i> <span>£{ssdSpec}</span></li>
+                    ${specsHtml}
                 </ul>
                 <div class="product-pricing">
                     <div class="price-col">
@@ -229,11 +340,29 @@ function renderShopProducts() {
     products.forEach(p => {
         const savings = p.retailPrice - p.price;
         const card = document.createElement('div');
-        card.className = `product-card glass-card product-category-£{p.category}`;
+        card.className = `product-card glass-card product-category-${p.category}`;
+        
+        let specsHtml = '';
+        p.specs.forEach((spec, sIdx) => {
+            const isHighlight = sIdx < 2;
+            const icon = spec.name.includes('CPU') ? 'cpu' : 
+                         spec.name.includes('GPU') ? 'zap' :
+                         spec.name.includes('RAM') ? 'database' :
+                         (spec.name.includes('SSD') || spec.name.includes('HDD')) ? 'hard-drive' :
+                         spec.name.includes('PSU') ? 'power' : 'box';
+            
+            const sourceColor = spec.source === 'Refurbished' ? 'green-text' : 'cyan-text';
+            specsHtml += `
+                <li class="${isHighlight ? 'highlight-spec' : ''}">
+                    <i data-lucide="${icon}"></i>
+                    <span>${spec.name} <span class="${sourceColor}" style="font-size:0.75rem;">(${spec.source})</span></span>
+                </li>
+            `;
+        });
         
         card.innerHTML = `
-            <div class="product-img-container">
-                <img src="${p.image}" alt="${p.name}">
+            <div class="product-img-container text-gradient-banner">
+                <div class="tier-gradient-title">£${p.price.toFixed(0)} BUILD</div>
                 <span class="badge-used"><i data-lucide="leaf" style="width:12px;height:12px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Refurbished Silicon</span>
                 <span class="price-saving-badge">Save £${savings.toFixed(0)}!</span>
             </div>
@@ -241,11 +370,7 @@ function renderShopProducts() {
                 <h3>${p.name}</h3>
                 <p class="product-desc">${p.description}</p>
                 <ul class="product-specs">
-                    <li class="highlight-spec"><i data-lucide="cpu"></i> <span>£{p.specs[0].name} (Used)</span></li>
-                    <li class="highlight-spec"><i data-lucide="zap"></i> <span>£{p.specs[1].name} (Used)</span></li>
-                    <li><i data-lucide="database"></i> <span>£{p.specs[2].name} (Used)</span></li>
-                    <li><i data-lucide="hard-drive"></i> <span>£{p.specs[3].name} (New)</span></li>
-                    <li><i data-lucide="power"></i> <span>£{p.specs[4].name} (New)</span></li>
+                    ${specsHtml}
                 </ul>
                 <div class="product-pricing">
                     <div class="price-col">
@@ -274,7 +399,7 @@ function filterProducts(category) {
     
     // Toggle product cards
     products.forEach(p => {
-        const cards = document.querySelectorAll(`.product-category-£{p.category}`);
+        const cards = document.querySelectorAll(`.product-category-${p.category}`);
         cards.forEach(card => {
             if (category === 'all' || p.category === category) {
                 card.style.display = 'flex';
@@ -399,14 +524,17 @@ function selectBasePcInBuilder(pcId) {
     document.querySelectorAll('.base-select-card').forEach(card => {
         card.classList.remove('selected');
     });
-    const selectedCard = document.getElementById(`base-card-£{pcId}`);
+    const selectedCard = document.getElementById(`base-card-${pcId}`);
     if (selectedCard) selectedCard.classList.add('selected');
     
-    // Reset selections
-    state.customizer.cpu = 'std';
-    state.customizer.gpu = 'std';
-    state.customizer.ram = 'std';
-    state.customizer.storage = 'std';
+    // Reset selections to standard configuration parts
+    const stdParts = basePartsMapping[pcId];
+    if (stdParts) {
+        state.customizer.cpu = stdParts.cpu;
+        state.customizer.gpu = stdParts.gpu;
+        state.customizer.ram = stdParts.ram;
+        state.customizer.storage = stdParts.storage;
+    }
     
     // Render builder options
     renderUpgradeOptions();
@@ -418,6 +546,8 @@ function selectBasePcInBuilder(pcId) {
 
 function renderUpgradeOptions() {
     const categories = ['cpu', 'gpu', 'ram', 'storage'];
+    const stdParts = basePartsMapping[state.selectedBasePcId];
+    if (!stdParts) return;
     
     categories.forEach(cat => {
         const container = document.getElementById(`${cat}Upgrades`);
@@ -431,7 +561,21 @@ function renderUpgradeOptions() {
             row.className = `upgrade-row ${isSelected ? 'selected' : ''}`;
             row.onclick = () => selectUpgrade(cat, opt.id);
             
-            let priceText = opt.price === 0 ? "Standard" : `+£${opt.price.toFixed(2)}`;
+            // Calculate price difference relative to standard parts
+            const stdPartId = stdParts[cat];
+            const stdPrice = partAbsolutePrices[stdPartId];
+            const optPrice = partAbsolutePrices[opt.id];
+            const priceDiff = optPrice - stdPrice;
+            
+            let priceText = '';
+            if (priceDiff === 0) {
+                priceText = "Standard";
+            } else if (priceDiff > 0) {
+                priceText = `+£${priceDiff.toFixed(2)}`;
+            } else {
+                priceText = `-£${Math.abs(priceDiff).toFixed(2)}`;
+            }
+            
             let sourceColor = opt.source === 'Refurbished' ? 'green-text' : 'cyan-text';
             
             row.innerHTML = `
@@ -439,7 +583,7 @@ function renderUpgradeOptions() {
                     <span class="upgrade-name">${opt.name}</span>
                     <span class="upgrade-source ${sourceColor}">${opt.source}</span>
                 </div>
-                <span class="upgrade-price">${priceText}</span>
+                <span class="upgrade-price ${priceDiff < 0 ? 'green-text' : ''}">${priceText}</span>
             `;
             container.appendChild(row);
         });
@@ -456,9 +600,24 @@ function updateBuilderPricingAndSummary() {
     const basePc = products.find(p => p.id === state.selectedBasePcId);
     if (!basePc) return;
     
-    // Update preview image
-    const img = document.getElementById('builderPreviewImg');
-    if (img) img.src = basePc.image;
+    // Update preview title banner
+    const previewTitle = document.getElementById('builderPreviewTitle');
+    if (previewTitle) {
+        previewTitle.innerText = `£${basePc.price.toFixed(0)} BUILD`;
+    }
+    
+    // Set theme for builder banner
+    const previewBanner = document.getElementById('builderPreviewBanner');
+    if (previewBanner) {
+        previewBanner.className = 'preview-image-container text-gradient-banner';
+        if (basePc.price <= 300) {
+            previewBanner.classList.add('cyan-theme');
+        } else if (basePc.price <= 500) {
+            previewBanner.classList.add('green-theme');
+        } else {
+            previewBanner.classList.add('purple-theme');
+        }
+    }
     
     // Name
     const name = document.getElementById('builderPcName');
@@ -469,42 +628,37 @@ function updateBuilderPricingAndSummary() {
     if (desc) desc.innerText = basePc.description;
     
     // Calculations
-    let partsTotal = basePc.price - FLAT_BUILD_FEE; // Extract components base price
+    const stdParts = basePartsMapping[basePc.id];
     let upgradeCost = 0;
     
     const summaryList = document.getElementById('builderSummaryList');
     if (summaryList) summaryList.innerHTML = '';
     
-    // Add default specs or modified upgrades to list
-    const specsToDisplay = [];
-    
-    // 1. CPU
+    // Find absolute details
     const selectedCpu = upgrades.cpu.find(o => o.id === state.customizer.cpu);
-    upgradeCost += selectedCpu.price;
-    const cpuName = selectedCpu.id === 'std' ? basePc.specs[0].name : selectedCpu.name;
-    specsToDisplay.push({ name: cpuName, source: 'Refurbished' });
-    
-    // 2. GPU
     const selectedGpu = upgrades.gpu.find(o => o.id === state.customizer.gpu);
-    upgradeCost += selectedGpu.price;
-    const gpuName = selectedGpu.id === 'std' ? basePc.specs[1].name : selectedGpu.name;
-    specsToDisplay.push({ name: gpuName, source: 'Refurbished' });
-    
-    // 3. RAM
     const selectedRam = upgrades.ram.find(o => o.id === state.customizer.ram);
-    upgradeCost += selectedRam.price;
-    const ramName = selectedRam.id === 'std' ? basePc.specs[2].name : selectedRam.name;
-    specsToDisplay.push({ name: ramName, source: 'Refurbished' });
-    
-    // 4. Storage
     const selectedStorage = upgrades.storage.find(o => o.id === state.customizer.storage);
-    upgradeCost += selectedStorage.price;
-    const storageName = selectedStorage.id === 'std' ? basePc.specs[3].name : selectedStorage.name;
-    specsToDisplay.push({ name: storageName, source: 'Brand New' });
     
-    // 5. Rest of standard components
-    specsToDisplay.push(basePc.specs[4]); // PSU
-    specsToDisplay.push(basePc.specs[5]); // Case
+    // Calculate cost delta
+    upgradeCost += (partAbsolutePrices[selectedCpu.id] - partAbsolutePrices[stdParts.cpu]);
+    upgradeCost += (partAbsolutePrices[selectedGpu.id] - partAbsolutePrices[stdParts.gpu]);
+    upgradeCost += (partAbsolutePrices[selectedRam.id] - partAbsolutePrices[stdParts.ram]);
+    upgradeCost += (partAbsolutePrices[selectedStorage.id] - partAbsolutePrices[stdParts.storage]);
+    
+    const specsToDisplay = [
+        { name: selectedCpu.name + ' CPU', source: 'Refurbished' },
+        { name: selectedGpu.name + ' GPU', source: 'Refurbished' },
+        { name: selectedRam.name, source: 'Refurbished' },
+        { name: selectedStorage.name, source: 'Brand New' }
+    ];
+    
+    // Append standard parts (PSU, Case, HDD)
+    specsToDisplay.push(basePc.specs[4]);
+    specsToDisplay.push(basePc.specs[5]);
+    if (basePc.specs[6]) {
+        specsToDisplay.push(basePc.specs[6]);
+    }
     
     // Populate UI summary list
     if (summaryList) {
@@ -512,7 +666,7 @@ function updateBuilderPricingAndSummary() {
             const li = document.createElement('li');
             const sourceClass = spec.source === 'Refurbished' ? 'green-text' : 'cyan-text';
             li.innerHTML = `
-                <span>£{spec.name}</span>
+                <span>${spec.name}</span>
                 <span class="${sourceClass}">${spec.source}</span>
             `;
             summaryList.appendChild(li);
@@ -520,14 +674,13 @@ function updateBuilderPricingAndSummary() {
     }
     
     // Dynamic pricing math
-    const totalParts = partsTotal + upgradeCost;
-    // Estimate retail price dynamically
+    let partsTotal = (basePc.price - FLAT_BUILD_FEE) + upgradeCost;
     const baseRetailParts = basePc.retailPrice;
-    const estimatedSavings = baseRetailParts - totalParts;
-    const totalCost = totalParts + FLAT_BUILD_FEE;
+    const estimatedSavings = baseRetailParts - partsTotal;
+    const totalCost = partsTotal + FLAT_BUILD_FEE;
     
     // Update labels
-    document.getElementById('builderPartsCost').innerText = `£${(totalParts + estimatedSavings).toFixed(2)}`;
+    document.getElementById('builderPartsCost').innerText = `£${(partsTotal + estimatedSavings).toFixed(2)}`;
     document.getElementById('builderSavingsCost').innerText = `-£${estimatedSavings.toFixed(2)}`;
     document.getElementById('builderFeeCost').innerText = `£${FLAT_BUILD_FEE.toFixed(2)}`;
     document.getElementById('builderTotalCost').innerText = `£${totalCost.toFixed(2)}`;
@@ -539,7 +692,7 @@ function updateBuilderPricingAndSummary() {
         price: totalCost,
         basePrice: basePc.price,
         specs: specsToDisplay,
-        image: basePc.image
+        image: ''
     };
 }
 
@@ -623,8 +776,8 @@ function updateCartUI() {
         const card = document.createElement('div');
         card.className = 'cart-item-card';
         card.innerHTML = `
-            <div class="cart-item-img">
-                <img src="${item.image}" alt="${item.name}">
+            <div class="cart-item-img text-gradient-banner" style="display:flex;align-items:center;justify-content:center;">
+                <div class="tier-gradient-title" style="font-size:0.85rem;animation:none;">£${item.price.toFixed(0)}</div>
             </div>
             <div class="cart-item-info">
                 <h4>${item.name}</h4>
