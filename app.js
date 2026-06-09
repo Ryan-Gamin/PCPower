@@ -160,21 +160,21 @@ const products = [
 const upgrades = {
     cpu: [
         { id: 'ryzen_2200g', name: 'AMD Ryzen 3 2200G', price: 40, source: 'Refurbished' },
-        { id: 'ryzen_2600', name: 'AMD Ryzen 3 2600', price: 65, source: 'Refurbished' },
-        { id: 'ryzen_4100', name: 'AMD Ryzen 5 4100', price: 80, source: 'Refurbished' },
-        { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 115, source: 'Refurbished' },
-        { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 155, source: 'Refurbished' },
-        { id: 'ryzen_5800x', name: 'AMD Ryzen 7 5800X', price: 185, source: 'Refurbished' },
-        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 245, source: 'Refurbished' }
+        { id: 'ryzen_2600', name: 'AMD Ryzen 3 2600', price: 73, source: 'Refurbished' },
+        { id: 'ryzen_4100', name: 'AMD Ryzen 5 4100', price: 93, source: 'Refurbished' },
+        { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 139, source: 'Refurbished' },
+        { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 191, source: 'Refurbished' },
+        { id: 'ryzen_5800x', name: 'AMD Ryzen 7 5800X', price: 230, source: 'Refurbished' },
+        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 308, source: 'Refurbished' }
     ],
     gpu: [
         { id: 'rx_570', name: 'Radeon RX 570 4GB', price: 60, source: 'Refurbished' },
-        { id: 'rx_580', name: 'Radeon RX 580 8GB', price: 80, source: 'Refurbished' },
-        { id: 'rx_6500xt', name: 'Radeon RX 6500 XT 4GB', price: 110, source: 'Refurbished' },
-        { id: 'rx_6700xt', name: 'Radeon RX 6700 XT 12GB', price: 240, source: 'Refurbished' },
-        { id: 'rx_6800xt', name: 'Radeon RX 6800 XT 16GB', price: 340, source: 'Refurbished' },
-        { id: 'rx_6950xt', name: 'Radeon RX 6950 XT 16GB', price: 460, source: 'Refurbished' },
-        { id: 'rx_7900xt', name: 'Radeon RX 7900 XT 20GB', price: 620, source: 'Refurbished' }
+        { id: 'rx_580', name: 'Radeon RX 580 8GB', price: 86, source: 'Refurbished' },
+        { id: 'rx_6500xt', name: 'Radeon RX 6500 XT 4GB', price: 125, source: 'Refurbished' },
+        { id: 'rx_6700xt', name: 'Radeon RX 6700 XT 12GB', price: 294, source: 'Refurbished' },
+        { id: 'rx_6800xt', name: 'Radeon RX 6800 XT 16GB', price: 424, source: 'Refurbished' },
+        { id: 'rx_6950xt', name: 'Radeon RX 6950 XT 16GB', price: 580, source: 'Refurbished' },
+        { id: 'rx_7900xt', name: 'Radeon RX 7900 XT 20GB', price: 788, source: 'Refurbished' }
     ],
     ram: [
         { id: 'ram_8gb', name: '8GB DDR4 RAM', price: 20, source: 'Refurbished' },
@@ -183,8 +183,8 @@ const upgrades = {
     ],
     storage: [
         { id: 'ssd_256gb', name: '256GB SSD', price: 15, source: 'Brand New' },
-        { id: 'ssd_500gb', name: '500GB NVMe SSD', price: 25, source: 'Brand New' },
-        { id: 'ssd_1tb', name: '1TB NVMe SSD', price: 50, source: 'Brand New' }
+        { id: 'ssd_500gb', name: '500GB NVMe SSD', price: 30, source: 'Brand New' },
+        { id: 'ssd_1tb', name: '1TB NVMe SSD', price: 68, source: 'Brand New' }
     ]
 };
 
@@ -201,10 +201,10 @@ const basePartsMapping = {
 
 // Part absolute pricing
 const partAbsolutePrices = {
-    ryzen_2200g: 40, ryzen_2600: 65, ryzen_4100: 80, ryzen_5600: 115, ryzen_5700x: 155, ryzen_5800x: 185, ryzen_5900x: 245,
-    rx_570: 60, rx_580: 80, rx_6500xt: 110, rx_6700xt: 240, rx_6800xt: 340, rx_6950xt: 460, rx_7900xt: 620,
+    ryzen_2200g: 40, ryzen_2600: 73, ryzen_4100: 93, ryzen_5600: 139, ryzen_5700x: 191, ryzen_5800x: 230, ryzen_5900x: 308,
+    rx_570: 60, rx_580: 86, rx_6500xt: 125, rx_6700xt: 294, rx_6800xt: 424, rx_6950xt: 580, rx_7900xt: 788,
     ram_8gb: 20, ram_16gb: 40, ram_32gb: 75,
-    ssd_256gb: 15, ssd_500gb: 25, ssd_1tb: 50
+    ssd_256gb: 15, ssd_500gb: 30, ssd_1tb: 68
 };
 
 // Constant Build Fee
@@ -305,10 +305,12 @@ function renderFeaturedProducts() {
         card.innerHTML = `
             <div class="product-img-container text-gradient-banner">
                 <div class="tier-gradient-title">£${p.price.toFixed(0)} BUILD</div>
-                <span class="badge-used"><i data-lucide="leaf" style="width:12px;height:12px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Certified Refurbished</span>
-                <span class="price-saving-badge">Save £${savings.toFixed(0)}!</span>
             </div>
             <div class="product-info">
+                <div class="product-badges-row" style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+                    <span class="badge-used-inline" style="background:rgba(57, 255, 20, 0.1); border:1px solid rgba(57, 255, 20, 0.2); color:var(--accent-green); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px; display:inline-flex; align-items:center; gap:4px;"><i data-lucide="leaf" style="width:12px;height:12px;"></i> Certified Refurbished</span>
+                    <span class="price-saving-badge-inline" style="background:rgba(0, 242, 254, 0.1); border:1px solid rgba(0, 242, 254, 0.2); color:var(--accent-cyan); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px;">Save £${savings.toFixed(0)}!</span>
+                </div>
                 <h3>${p.name}</h3>
                 <p class="product-desc">${p.description}</p>
                 <ul class="product-specs">
@@ -363,10 +365,12 @@ function renderShopProducts() {
         card.innerHTML = `
             <div class="product-img-container text-gradient-banner">
                 <div class="tier-gradient-title">£${p.price.toFixed(0)} BUILD</div>
-                <span class="badge-used"><i data-lucide="leaf" style="width:12px;height:12px;display:inline-block;vertical-align:middle;margin-right:4px;"></i> Refurbished Silicon</span>
-                <span class="price-saving-badge">Save £${savings.toFixed(0)}!</span>
             </div>
             <div class="product-info">
+                <div class="product-badges-row" style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+                    <span class="badge-used-inline" style="background:rgba(57, 255, 20, 0.1); border:1px solid rgba(57, 255, 20, 0.2); color:var(--accent-green); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px; display:inline-flex; align-items:center; gap:4px;"><i data-lucide="leaf" style="width:12px;height:12px;"></i> Refurbished Silicon</span>
+                    <span class="price-saving-badge-inline" style="background:rgba(0, 242, 254, 0.1); border:1px solid rgba(0, 242, 254, 0.2); color:var(--accent-cyan); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px;">Save £${savings.toFixed(0)}!</span>
+                </div>
                 <h3>${p.name}</h3>
                 <p class="product-desc">${p.description}</p>
                 <ul class="product-specs">
