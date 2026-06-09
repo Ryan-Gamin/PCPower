@@ -923,3 +923,23 @@ function selectShowcaseGame(game) {
         if (btn) btn.classList.add('active');
     }
 }
+
+// Expose functions to the global scope (required for HTML inline event handlers under Vite ESM modules)
+window.showSection = showSection;
+window.toggleMobileMenu = toggleMobileMenu;
+window.selectShowcaseGame = selectShowcaseGame;
+window.selectBasePcInBuilder = selectBasePcInBuilder;
+window.addCustomBuildToCart = addCustomBuildToCart;
+window.toggleCart = toggleCart;
+window.updateQty = updateQty;
+window.removeFromCart = removeFromCart;
+window.applyPromoCode = applyPromoCode;
+window.openCheckout = openCheckout;
+window.closeCheckout = closeCheckout;
+window.handleShippingSubmit = handleShippingSubmit;
+window.handlePaymentSubmit = handlePaymentSubmit;
+window.backToShipping = backToShipping;
+window.finishCheckout = finishCheckout;
+window.toggleFaq = toggleFaq;
+window.filterProducts = filterProducts;
+
