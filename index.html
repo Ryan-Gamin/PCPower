@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PCPower - Premium pre-built gaming PC bundles at unbeatable prices. Built with high-quality certified used parts, ultra-low building fees, and 3-month warranty.">
+    <title>PCPower | Premium Pre-Built PCs, Used Parts Savings, Low Build Fees</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="#" class="logo-container" onclick="showSection('home')">
+                <span class="logo-glow"></span>
+                <span class="logo-text">PC<span class="highlight-text">POWER</span></span>
+            </a>
+            
+            <nav class="main-nav">
+                <a href="#home" class="nav-link active" onclick="showSection('home')">Home</a>
+                <a href="#shop" class="nav-link" onclick="showSection('shop')">Pre-Builts</a>
+                <a href="#builder" class="nav-link" onclick="showSection('builder')">PC Builder</a>
+                <a href="#calculator" class="nav-link" onclick="showSection('home', 'calculator-section')">Savings</a>
+                <a href="#faq" class="nav-link" onclick="showSection('faq')">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="cart-btn" onclick="toggleCart(true)">
+                    <i data-lucide="shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home" onclick="showSection('home'); toggleMobileMenu()">Home</a>
+        <a href="#shop" onclick="showSection('shop'); toggleMobileMenu()">Pre-Builts</a>
+        <a href="#builder" onclick="showSection('builder'); toggleMobileMenu()">PC Builder</a>
+        <a href="#calculator" onclick="showSection('home', 'calculator-section'); toggleMobileMenu()">Savings</a>
+        <a href="#faq" onclick="showSection('faq'); toggleMobileMenu()">FAQ</a>
+    </div>
+
+    <!-- Main Content Container -->
+    <main>
+        
+        <!-- ================= HOME SECTION ================= -->
+        <section id="home" class="view-section active">
+            <!-- Hero Container -->
+            <div class="hero-section">
+                <div class="container hero-container-grid">
+                    <div class="hero-content">
+                        <div class="tagline">
+                            <span class="tag-badge green-badge"><i data-lucide="recycle"></i> Used Parts, Ultimate Value</span>
+                            <span class="tag-badge cyan-badge"><i data-lucide="wrench"></i> Flat £49 Building Fee</span>
+                        </div>
+                        <h1 class="hero-title">Extreme Gaming PC Power.<br><span class="gradient-text">Half the Price.</span></h1>
+                        <p class="hero-subtitle">We build premium, high-performance PCs using thoroughly tested, certified refurbished parts. Same performance, massive savings, and zero e-waste.</p>
+                        <div class="hero-actions">
+                            <button class="btn btn-primary" onclick="showSection('shop')">
+                                <i data-lucide="shopping-bag"></i> Browse Pre-Builts
+                            </button>
+                            <button class="btn btn-secondary" onclick="showSection('builder')">
+                                <i data-lucide="sliders"></i> Customize Your Build
+                            </button>
+                        </div>
+                        <div class="hero-features">
+                            <div class="hero-feature-item">
+                                <i data-lucide="shield-check" class="feature-icon green"></i>
+                                <span>3-month warranty</span>
+                            </div>
+                            <div class="hero-feature-item">
+                                <i data-lucide="check-square" class="feature-icon cyan"></i>
+                                <span>100-Point Tested</span>
+                            </div>
+                            <div class="hero-feature-item">
+                                <i data-lucide="truck" class="feature-icon purple"></i>
+                                <span>Free Shipping</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2D Performance Showcase Card -->
+                    <div class="hero-visual">
+                        <div class="visual-card glass-card performance-showcase-card">
+                            <div class="card-header">
+                                <div class="card-header-title">
+                                    <i data-lucide="gauge"></i>
+                                    <span>Real-Time Performance Calculator</span>
+                                </div>
+                                <div class="visual-controls game-select-tabs">
+                                    <button class="control-badge active" id="btnGameFortnite" onclick="selectShowcaseGame('fortnite')">Fortnite</button>
+                                    <button class="control-badge" id="btnGameCyberpunk" onclick="selectShowcaseGame('cyberpunk')">Cyberpunk</button>
+                                    <button class="control-badge" id="btnGameCod" onclick="selectShowcaseGame('cod')">Warzone</button>
+                                </div>
+                            </div>
+                            <div class="showcase-banner-container">
+                                <img src="assets/hero_banner.png" alt="High-End PC Interior" class="showcase-img">
+                                <div class="showcase-overlay-specs">
+                                    <div class="spec-bubble"><i data-lucide="cpu"></i> Ryzen 7 5800X</div>
+                                    <div class="spec-bubble"><i data-lucide="zap"></i> RTX 3080 10GB</div>
+                                </div>
+                                <div class="showcase-fps-meter">
+                                    <span class="fps-val" id="showcaseFps">240</span>
+                                    <span class="fps-lbl">FPS Average<br><span class="fps-sub" id="showcaseSettings">1080p Performance</span></span>
+                                </div>
+                            </div>
+                            <div class="visual-footer showcase-footer">
+                                <div class="footer-hint">
+                                    <i data-lucide="check-circle"></i> Sourced from certified refurbishers, warrantied for 3 months.
+                                </div>
+                                <button class="btn btn-primary btn-sm" onclick="selectBasePcInBuilder('high')">
+                                    Customize Build <i data-lucide="arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Proposition section -->
+            <div class="value-props-section">
+                <div class="container">
+                    <div class="section-title-wrapper text-center">
+                        <h2 class="section-title">The PCPower Advantage</h2>
+                        <p class="section-subtitle">How we deliver desktop gaming rigs at console prices without cutting corners.</p>
+                    </div>
+                    <div class="value-grid">
+                        <div class="value-card glass-card">
+                            <div class="value-icon-wrapper green-bg">
+                                <i data-lucide="dollar-sign"></i>
+                            </div>
+                            <h3>Used Parts = Big Savings</h3>
+                            <p>CPUs, GPUs, and motherboards don't degrade in speed over time. We source premium pre-owned components, clean them, and pass 100% of the savings directly to you.</p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="value-icon-wrapper cyan-bg">
+                                <i data-lucide="wrench"></i>
+                            </div>
+                            <h3>Flat £49 Building Fee</h3>
+                            <p>Other PC builders charge 15-25% markups on parts. We charge a flat £49 building and testing fee. Transparent, fair, and incredibly cheap.</p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="value-icon-wrapper purple-bg">
+                                <i data-lucide="check-check"></i>
+                            </div>
+                            <h3>100-Point Burn-In Test</h3>
+                            <p>Every PC undergoes 24 hours of stressful burn-in tests (FurMark, MemTest86, Prime95) to guarantee rock-solid thermal performance and stability.</p>
+                        </div>
+                        <div class="value-card glass-card">
+                            <div class="value-icon-wrapper eco-bg">
+                                <i data-lucide="leaf"></i>
+                            </div>
+                            <h3>Eco-Friendly Gaming</h3>
+                            <p>Building with refurbished components keeps hazardous heavy metals out of landfills and avoids the huge carbon footprint of manufacturing new silicon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Savings Calculator Section -->
+            <div class="calculator-section" id="calculator-section">
+                <div class="container">
+                    <div class="calculator-card glass-card">
+                        <div class="calculator-grid">
+                            <div class="calculator-inputs">
+                                <h2>Calculate Your <span class="gradient-text green-cyan">Used Savings</span></h2>
+                                <p>Drag the slider to choose your target gaming budget and see how much more performance you get with PCPower compared to buying brand new.</p>
+                                
+                                <div class="slider-container">
+                                    <div class="slider-label">
+                                        <span>Target PC Budget</span>
+                                        <span class="budget-value" id="budgetValue">£500</span>
+                                    </div>
+                                    <input type="range" min="200" max="800" step="100" value="500" class="custom-slider" id="budgetSlider">
+                                    <div class="slider-ticks">
+                                        <span>£200</span>
+                                        <span>£400</span>
+                                        <span>£600</span>
+                                        <span>£800</span>
+                                    </div>
+                                </div>
+
+                                <div class="savings-highlights">
+                                    <div class="highlight-stat">
+                                        <span class="stat-number green-text" id="savingsAmount">£290</span>
+                                        <span class="stat-label">Estimated Savings</span>
+                                    </div>
+                                    <div class="highlight-stat">
+                                        <span class="stat-number cyan-text" id="fpsAmount">165 FPS</span>
+                                        <span class="stat-label">1080p Ultra Gaming</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="calculator-results">
+                                <h3>Performance & Parts Breakdown</h3>
+                                <div class="comparison-row">
+                                    <div class="comp-col">
+                                        <h4>Retail Store (New)</h4>
+                                        <ul class="comp-list" id="retailList">
+                                            <!-- Dynamically generated -->
+                                        </ul>
+                                    </div>
+                                    <div class="divider-line">VS</div>
+                                    <div class="comp-col pcpower-col">
+                                        <h4>PCPower (Used + £49 Fee)</h4>
+                                        <ul class="comp-list" id="pcpowerList">
+                                            <!-- Dynamically generated -->
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="calculator-eco-impact">
+                                    <i data-lucide="leaf" class="green-text"></i>
+                                    <span>Choosing this build prevents **14.8kg of e-waste** and saves **180kg of CO2** emissions!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Pre-Builts Section -->
+            <div class="featured-section">
+                <div class="container">
+                    <div class="section-header-flex">
+                        <div class="section-title-wrapper">
+                            <h2 class="section-title">Ready-To-Ship Bundles</h2>
+                            <p class="section-subtitle">Pre-assembled, tested, packaged, and ready to play out of the box.</p>
+                        </div>
+                        <button class="btn btn-secondary" onclick="showSection('shop')">
+                            View All Shop Items <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="products-grid" id="featuredProducts">
+                        <!-- Dynamically filled -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SHOP/PRE-BUILTS SECTION ================= -->
+        <section id="shop" class="view-section">
+            <div class="container">
+                <div class="section-title-wrapper text-center">
+                    <h1 class="section-title">Pre-Built PC Bundles</h1>
+                    <p class="section-subtitle">Fully completed setups. Select your tier, configure upgrades, and save money.</p>
+                </div>
+                
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterProducts('all')">All Systems</button>
+                    <button class="filter-tab" onclick="filterProducts('budget')">Ultra Budget (<£400)</button>
+                    <button class="filter-tab" onclick="filterProducts('mid')">Mid-Tier Gaming</button>
+                    <button class="filter-tab" onclick="filterProducts('high')">High-End Custom</button>
+                </div>
+
+                <div class="products-grid" id="shopProducts">
+                    <!-- Dynamically loaded -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PC BUILDER CUSTOMIZER SECTION ================= -->
+        <section id="builder" class="view-section">
+            <div class="container">
+                <div class="section-title-wrapper text-center">
+                    <h1 class="section-title">The PCPower Customizer</h1>
+                    <p class="section-subtitle">Select a base bundle, customize specs with used or brand new parts, and see live pricing details.</p>
+                </div>
+
+                <div class="builder-layout">
+                    <!-- Customizer Configurator (Left) -->
+                    <div class="builder-options-panel glass-card">
+                        <h2>Configure Your Custom Rig</h2>
+                        
+                        <div class="option-group">
+                            <label class="group-title"><i data-lucide="box"></i> 1. Select Base Bundle</label>
+                            <div class="base-pc-select-grid" id="basePcGrid">
+                                <!-- Dynamically generated -->
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="group-title"><i data-lucide="cpu"></i> 2. CPU / Processor</label>
+                            <div class="upgrades-select-grid" id="cpuUpgrades">
+                                <!-- Dynamically filled -->
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="group-title"><i data-lucide="zap"></i> 3. GPU / Graphics Card</label>
+                            <div class="upgrades-select-grid" id="gpuUpgrades">
+                                <!-- Dynamically filled -->
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="group-title"><i data-lucide="database"></i> 4. RAM / Memory</label>
+                            <div class="upgrades-select-grid" id="ramUpgrades">
+                                <!-- Dynamically filled -->
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="group-title"><i data-lucide="hard-drive"></i> 5. Storage / SSD</label>
+                            <div class="upgrades-select-grid" id="storageUpgrades">
+                                <!-- Dynamically filled -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sticky Build Details (Right) -->
+                    <div class="builder-preview-panel">
+                        <div class="sticky-preview-card glass-card">
+                            <div class="preview-image-container">
+                                <img src="" alt="Custom PC Preview" id="builderPreviewImg">
+                                <div class="badge-overlay-eco"><i data-lucide="leaf"></i> Used CPU & GPU Sourced</div>
+                            </div>
+                            <div class="preview-details">
+                                <h3 id="builderPcName">Custom Rig</h3>
+                                <p class="preview-description" id="builderPcDesc">Loading base specifications...</p>
+                                
+                                <div class="parts-summary-list">
+                                    <h4>Included Parts & Source:</h4>
+                                    <ul id="builderSummaryList">
+                                        <!-- Dynamic list -->
+                                    </ul>
+                                </div>
+
+                                <div class="price-breakdown-box">
+                                    <div class="breakdown-line">
+                                        <span>Parts Total (Used Savings)</span>
+                                        <span id="builderPartsCost">£0.00</span>
+                                    </div>
+                                    <div class="breakdown-line">
+                                        <span class="green-text">Used Parts Discount</span>
+                                        <span class="green-text" id="builderSavingsCost">-£0.00</span>
+                                    </div>
+                                    <div class="breakdown-line font-bold border-bottom">
+                                        <span>Flat PCPower Build Fee</span>
+                                        <span class="cyan-text" id="builderFeeCost">£49.00</span>
+                                    </div>
+                                    <div class="breakdown-line total-line">
+                                        <span>Total Est. Price</span>
+                                        <span id="builderTotalCost">£0.00</span>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary btn-full" onclick="addCustomBuildToCart()">
+                                    <i data-lucide="shopping-cart"></i> Add Custom Build to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQ SECTION ================= -->
+        <section id="faq" class="view-section">
+            <div class="container faq-container">
+                <div class="section-title-wrapper text-center">
+                    <h1 class="section-title">Frequently Asked Questions</h1>
+                    <p class="section-subtitle">Everything you need to know about our sourcing, assembly, and testing processes.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item glass-card">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>How do you source and test your used parts?</h3>
+                            <i data-lucide="chevron-down" class="accordion-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We source parts from certified refurbishers, bulk corporate liquidations, and gamers upgrading their gear. Each component undergoes a rigorous 100-point testing system. CPUs are stress-tested in Prime95, GPUs undergo thermal profiling and benchmark runs in FurMark, RAM is checked using MemTest86, and motherboards are checked for visual damage, capacitors, and port integrity. Only 100% healthy components make the cut.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Is there a warranty on PCs containing used parts?</h3>
+                            <i data-lucide="chevron-down" class="accordion-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, absolutely! We provide a **full 3-month PCPower Warranty** on the entire system. If any component fails under normal operation within the first 3 months, we will repair or replace the part for free, covering all shipping costs. Your peace of mind is our priority.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Which parts are new and which are used?</h3>
+                            <i data-lucide="chevron-down" class="accordion-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We believe in combining safety with maximum value. That's why high-wear items like **SSDs (storage), Power Supplies (PSUs), and PC Cases** are always **100% Brand New**. High-value silicon components like **CPUs, GPUs, Motherboards, and RAM** are sourced as **Certified Refurbished**, saving you hundreds of dollars while retaining perfect structural and computational efficiency.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Why is your building fee so low?</h3>
+                            <i data-lucide="chevron-down" class="accordion-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Traditional pre-built manufacturers inflate the cost of individual components to hide high labor costs and markups. We charge a simple, flat building fee of **£49**. Our high-volume assembly line allows us to build efficiently, test rigs in parallel, and keep margins razor-thin to prioritize gamer value and reduce electronic waste.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item glass-card">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            <h3>Can I send you my own parts to build a PC?</h3>
+                            <i data-lucide="chevron-down" class="accordion-arrow"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Currently, we only assemble systems using components from our own certified warehouse inventory. This ensures that every part is fully pre-tested and covered under our unified 3-month system warranty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Slide-in Shopping Cart Drawer -->
+    <div class="cart-backdrop" id="cartBackdrop" onclick="toggleCart(false)"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Shopping Cart (<span class="cart-count">0</span>)</h3>
+            <button class="close-cart-btn" onclick="toggleCart(false)"><i data-lucide="x"></i></button>
+        </div>
+        
+        <!-- Cart Items List -->
+        <div class="cart-items" id="cartItemsList">
+            <!-- Dynamic Cart Items -->
+            <div class="empty-cart-message">
+                <i data-lucide="shopping-bag" size="48"></i>
+                <p>Your cart is empty.</p>
+                <button class="btn btn-secondary" onclick="toggleCart(false); showSection('shop')">Explore Shop</button>
+            </div>
+        </div>
+
+        <!-- Cart Summary Footer -->
+        <div class="cart-summary" id="cartSummarySection">
+            <div class="promo-box">
+                <input type="text" placeholder="Promo Code (ECOFRIENDLY / FREEBUILD)" id="promoInput">
+                <button class="btn btn-secondary btn-sm" onclick="applyPromoCode()">Apply</button>
+            </div>
+            <div id="promoFeedback" class="promo-feedback"></div>
+
+            <div class="price-breakdown">
+                <div class="price-line">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">£0.00</span>
+                </div>
+                <div class="price-line green-text" id="promoLine" style="display: none;">
+                    <span id="promoName">Promo Code</span>
+                    <span id="promoDiscount">-£0.00</span>
+                </div>
+                <div class="price-line">
+                    <span>Building & Testing Fee</span>
+                    <span id="cartBuildFee">£0.00</span>
+                </div>
+                <div class="price-line font-bold border-top">
+                    <span>Total Cost</span>
+                    <span id="cartTotal">£0.00</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-full checkout-action-btn" onclick="openCheckout()">
+                Proceed to Checkout <i data-lucide="arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Multi-Step Checkout Modal -->
+    <div class="modal-backdrop" id="checkoutModal" style="display: none;">
+        <div class="modal-card glass-card max-w-md">
+            <div class="modal-header">
+                <h2>Secure Checkout</h2>
+                <button class="close-modal" onclick="closeCheckout()"><i data-lucide="x"></i></button>
+            </div>
+            
+            <!-- Checkout Navigation Steps -->
+            <div class="checkout-steps">
+                <div class="step-indicator active" id="step1">1. Shipping</div>
+                <div class="step-indicator" id="step2">2. Payment</div>
+                <div class="step-indicator" id="step3">3. Success</div>
+            </div>
+
+            <!-- Step 1: Shipping Info -->
+            <form id="shippingForm" onsubmit="handleShippingSubmit(event)" class="checkout-step-content active">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" required id="shipName" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" required id="shipEmail" placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <input type="text" required id="shipAddress" placeholder="123 PC Power Way">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" required id="shipCity" placeholder="Silicon Valley">
+                    </div>
+                    <div class="form-group">
+                        <label>Postal Code</label>
+                        <input type="text" required id="shipZip" placeholder="94016">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full mt-4">Continue to Payment</button>
+            </form>
+
+            <!-- Step 2: Payment Simulator -->
+            <form id="paymentForm" onsubmit="handlePaymentSubmit(event)" class="checkout-step-content" style="display: none;">
+                <div class="payment-summary">
+                    <span>Total Amount due:</span>
+                    <span class="summary-total" id="checkoutTotalAmount">£0.00</span>
+                </div>
+                <div class="form-group">
+                    <label>Cardholder Name</label>
+                    <input type="text" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Card Number</label>
+                    <input type="text" required placeholder="4000 1234 5678 9010" pattern="[0-9\s]{16,19}">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Expiry Date</label>
+                        <input type="text" required placeholder="MM/YY" pattern="\d{2}/\d{2}">
+                    </div>
+                    <div class="form-group">
+                        <label>CVC</label>
+                        <input type="password" required placeholder="123" pattern="\d{3}">
+                    </div>
+                </div>
+                <div class="form-secure-note">
+                    <i data-lucide="lock" size="14"></i> Secured 256-Bit SSL Payment Simulation.
+                </div>
+                <div class="button-row">
+                    <button type="button" class="btn btn-secondary" onclick="backToShipping()">Back</button>
+                    <button type="submit" class="btn btn-primary" id="payBtn">Pay Now</button>
+                </div>
+            </form>
+
+            <!-- Step 3: Success Screen -->
+            <div id="successContent" class="checkout-step-content text-center" style="display: none;">
+                <div class="success-icon-wrapper">
+                    <i data-lucide="check-circle" class="green-text"></i>
+                </div>
+                <h2>Order Confirmed!</h2>
+                <p>Thank you for shopping at PCPower. Your simulated order has been registered.</p>
+                
+                <div class="receipt-box">
+                    <h4>PCPower Receipt</h4>
+                    <p class="receipt-date" id="receiptDate">Date: June 8, 2026</p>
+                    <p class="receipt-id" id="receiptId">Order ID: #PCP-7819</p>
+                    <div class="receipt-lines" id="receiptItems">
+                        <!-- Filled dynamically -->
+                    </div>
+                    <div class="receipt-total border-top font-bold" id="receiptTotal">
+                        Total: £0.00
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-full mt-4" onclick="finishCheckout()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Footer Area -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo-text">PC<span class="highlight-text">POWER</span></a>
+                <p>High-value PC pre-builts using certified used components and ultra-low building fees. Reducing e-waste, maximizing gaming frame rates.</p>
+                <div class="social-links">
+                    <a href="#"><i data-lucide="twitter"></i></a>
+                    <a href="#"><i data-lucide="instagram"></i></a>
+                    <a href="#"><i data-lucide="youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Products</h4>
+                <a href="#shop" onclick="showSection('shop')">Ready-to-Ship PCs</a>
+                <a href="#builder" onclick="showSection('builder')">Interactive Customizer</a>
+                <a href="#calculator" onclick="showSection('home', 'calculator-section')">Savings Calculator</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#faq" onclick="showSection('faq')">Warranty & Sourcing FAQ</a>
+                <a href="#">Shipping & Returns</a>
+                <a href="#">Contact Us</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Environmental Impact</h4>
+                <div class="impact-stats">
+                    <div class="impact-stat-item">
+                        <span class="impact-num green-text">14.2 Tons</span>
+                        <span class="impact-lbl">E-waste Diverted</span>
+                    </div>
+                    <div class="impact-stat-item mt-2">
+                        <span class="impact-num cyan-text">184 Tons</span>
+                        <span class="impact-lbl">CO2 Emissions Saved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 PCPower. All rights reserved. Demo e-commerce simulation.</p>
+            <!-- Squeezed Attribution Link - Barely Visible & Squeezed at the bottom for legal compliance -->
+            <p class="squeezed-attribution">
+                <a href="https://sketchfab.com/" target="_blank" rel="noopener noreferrer">Custom Gaming PC by Yolala3D | Y3D</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- App Logic Script -->
+    <script src="app.js"></script>
+</body>
+</html>
