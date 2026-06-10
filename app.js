@@ -169,7 +169,7 @@ const products = [
         specs: [
             { name: 'AMD Ryzen 7 5800X3D CPU', source: 'Second-Hand' },
             { name: 'Radeon RX 9070 XT 16GB GPU', source: 'Second-Hand' },
-            { name: '16GB DDR4 RAM', source: 'Second-Hand' },
+            { name: '64GB DDR4 RAM', source: 'Second-Hand' },
             { name: '1TB NVMe SSD', source: 'Brand New' },
             { name: '2TB HDD Storage', source: 'Second-Hand' },
             { name: '750W Gold PSU', source: 'Brand New' },
@@ -218,7 +218,8 @@ const upgrades = {
     ram: [
         { id: 'ram_8gb', name: '8GB DDR4 RAM', price: 20, source: 'Second-Hand' },
         { id: 'ram_16gb', name: '16GB DDR4 RAM', price: 40, source: 'Second-Hand' },
-        { id: 'ram_32gb', name: '32GB DDR4 RAM', price: 75, source: 'Second-Hand' }
+        { id: 'ram_32gb', name: '32GB DDR4 RAM', price: 75, source: 'Second-Hand' },
+        { id: 'ram_64gb', name: '64GB DDR4 RAM', price: 145, source: 'Second-Hand' }
     ],
     ssd: [
         { id: 'ssd_256gb', name: '256GB NVMe SSD', source: 'Brand New' },
@@ -242,7 +243,7 @@ const basePartsMapping = {
     tier600: { cpu: 'ryzen_5600', gpu: 'rx_6800xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'none' },
     tier700: { cpu: 'ryzen_5600', gpu: 'rx_6950xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'hdd_500gb' },
     tier800: { cpu: 'ryzen_5900x', gpu: 'rx_6950xt', ram: 'ram_32gb', ssd: 'ssd_1tb', hdd: 'hdd_500gb' },
-    tier1000: { cpu: 'ryzen_5800x3d', gpu: 'rx_9070xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'hdd_2tb' }
+    tier1000: { cpu: 'ryzen_5800x3d', gpu: 'rx_9070xt', ram: 'ram_64gb', ssd: 'ssd_1tb', hdd: 'hdd_2tb' }
 };
 
 // Part absolute pricing
@@ -251,7 +252,7 @@ const partAbsolutePrices = {
     gpu_integrated: 0,
     rx_570: 60, rx_580: 65, rx_6600: 140, rx_6600xt: 170, rx_6650xt: 180, rx_6700xt: 200, rx_6800: 270, rx_6800xt: 300, rx_6950xt: 380, rx_7900xt: 570, rx_9070xt: 720,
     gtx_1060: 70, gtx_1660s: 110, rtx_2060: 140, rtx_3060: 190, rtx_3070: 260, rtx_3080: 380, rtx_4070: 530, rtx_4070ti: 680, rtx_4080: 850, rtx_4090: 1450,
-    ram_8gb: 20, ram_16gb: 40, ram_32gb: 75
+    ram_8gb: 20, ram_16gb: 40, ram_32gb: 75, ram_64gb: 145
 };
 
 // Helper price calculator functions for storage
