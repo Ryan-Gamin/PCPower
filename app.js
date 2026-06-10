@@ -52,7 +52,7 @@ const products = [
         image: '',
         category: 'budget',
         specs: [
-            { name: 'AMD Ryzen 3 2600 CPU', source: 'Refurbished' },
+            { name: 'AMD Ryzen 5 3600 CPU', source: 'Refurbished' },
             { name: 'Radeon RX 580 8GB GPU', source: 'Refurbished' },
             { name: '8GB DDR4 RAM', source: 'Refurbished' },
             { name: '256GB NVMe SSD', source: 'Brand New' },
@@ -160,7 +160,7 @@ const products = [
 const upgrades = {
     cpu: [
         { id: 'ryzen_2200g', name: 'AMD Ryzen 3 2200G', price: 35, source: 'Refurbished' },
-        { id: 'ryzen_2600', name: 'AMD Ryzen 3 2600', price: 50, source: 'Refurbished' },
+        { id: 'ryzen_3600', name: 'AMD Ryzen 5 3600', price: 50, source: 'Refurbished' },
         { id: 'ryzen_4100', name: 'AMD Ryzen 5 4100', price: 55, source: 'Refurbished' },
         { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 90, source: 'Refurbished' },
         { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 130, source: 'Refurbished' },
@@ -191,7 +191,7 @@ const upgrades = {
 // Map each base PC ID to its standard parts
 const basePartsMapping = {
     tier200: { cpu: 'ryzen_2200g', gpu: 'rx_570', ram: 'ram_8gb', storage: 'ssd_256gb' },
-    tier300: { cpu: 'ryzen_2600', gpu: 'rx_580', ram: 'ram_8gb', storage: 'ssd_256gb' },
+    tier300: { cpu: 'ryzen_3600', gpu: 'rx_580', ram: 'ram_8gb', storage: 'ssd_256gb' },
     tier400: { cpu: 'ryzen_4100', gpu: 'rx_6500xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
     tier500: { cpu: 'ryzen_5600', gpu: 'rx_6700xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
     tier600: { cpu: 'ryzen_5700x', gpu: 'rx_6800xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
@@ -201,7 +201,7 @@ const basePartsMapping = {
 
 // Part absolute pricing
 const partAbsolutePrices = {
-    ryzen_2200g: 35, ryzen_2600: 50, ryzen_4100: 55, ryzen_5600: 90, ryzen_5700x: 130, ryzen_5800x: 140, ryzen_5900x: 210,
+    ryzen_2200g: 35, ryzen_3600: 50, ryzen_4100: 55, ryzen_5600: 90, ryzen_5700x: 130, ryzen_5800x: 140, ryzen_5900x: 210,
     rx_570: 60, rx_580: 86, rx_6500xt: 125, rx_6700xt: 294, rx_6800xt: 424, rx_6950xt: 580, rx_7900xt: 788,
     ram_8gb: 20, ram_16gb: 40, ram_32gb: 75,
     ssd_256gb: 15, ssd_500gb: 30, ssd_1tb: 68
@@ -429,7 +429,7 @@ const calculatorData = {
     },
     300: {
         retail: ["AMD Ryzen 3 3200G CPU (New)", "Radeon Vega 8 Graphics (Slow)", "8GB DDR4 RAM (New)", "256GB SATA SSD (New)", "Basic Office Case", "350W Basic Power Supply", "Retail Markup"],
-        pcpower: ["AMD Ryzen 3 2600 CPU (Used)", "Radeon RX 580 8GB GPU (Used)", "8GB DDR4 RAM (Used)", "256GB NVMe SSD (New)", "Sleek Glass MicroATX (New)", "500W Bronze PSU (New)", "Flat £49 Building Fee"],
+        pcpower: ["AMD Ryzen 5 3600 CPU (Used)", "Radeon RX 580 8GB GPU (Used)", "8GB DDR4 RAM (Used)", "256GB NVMe SSD (New)", "Sleek Glass MicroATX (New)", "500W Bronze PSU (New)", "Flat £49 Building Fee"],
         savings: 180, fps: "85 FPS (1080p Esports)", ecoWaste: "10.2kg", co2: "130kg"
     },
     400: {
