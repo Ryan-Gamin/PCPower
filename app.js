@@ -228,6 +228,12 @@ function initApp() {
             console.error("Failed parsing cart from localStorage", e);
         }
     }
+
+    // Force page to start on the home screen
+    showSection('home');
+    if (window.location.hash && window.location.hash !== '#home') {
+        history.replaceState(null, null, window.location.pathname);
+    }
 }
 
 // Navigation & Tab Switching
