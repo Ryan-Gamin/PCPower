@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PCPower - Premium pre-built gaming PC bundles at unbeatable prices. Built with high-quality certified used parts, ultra-low building fees, and 3-month warranty.">
-    <title>PCPower | Premium Pre-Built PCs, Used Parts Savings, Low Build Fees</title>
+    <meta name="description" content="PCPower - Premium pre-built gaming PC bundles at unbeatable prices. Built with high-quality certified parts, ultra-low building fees, and 3-month warranty.">
+    <title>PCPower | Premium Pre-Built PCs, Certified Parts Savings, Low Build Fees</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,8 @@
                 <a href="#home" class="nav-link active" onclick="showSection('home')">Home</a>
                 <a href="#shop" class="nav-link" onclick="showSection('shop')">Pre-Builts</a>
                 <a href="#builder" class="nav-link" onclick="showSection('builder')">PC Builder</a>
-                <a href="#calculator" class="nav-link" onclick="showSection('home', 'calculator-section')">Savings</a>
+                <a href="#warranty" class="nav-link" onclick="showSection('warranty')">Warranty</a>
+                <a href="#contact" class="nav-link" onclick="showSection('contact')">Contact</a>
                 <a href="#faq" class="nav-link" onclick="showSection('faq')">FAQ</a>
             </nav>
 
@@ -49,7 +50,8 @@
         <a href="#home" onclick="showSection('home'); toggleMobileMenu()">Home</a>
         <a href="#shop" onclick="showSection('shop'); toggleMobileMenu()">Pre-Builts</a>
         <a href="#builder" onclick="showSection('builder'); toggleMobileMenu()">PC Builder</a>
-        <a href="#calculator" onclick="showSection('home', 'calculator-section'); toggleMobileMenu()">Savings</a>
+        <a href="#warranty" onclick="showSection('warranty'); toggleMobileMenu()">Warranty Plan</a>
+        <a href="#contact" onclick="showSection('contact'); toggleMobileMenu()">Contact Us</a>
         <a href="#faq" onclick="showSection('faq'); toggleMobileMenu()">FAQ</a>
     </div>
 
@@ -63,11 +65,11 @@
                 <div class="container hero-container-grid">
                     <div class="hero-content">
                         <div class="tagline">
-                            <span class="tag-badge green-badge"><i data-lucide="recycle"></i> Used Parts, Ultimate Value</span>
-                            <span class="tag-badge cyan-badge"><i data-lucide="wrench"></i> Flat £49 Building Fee</span>
+                            <span class="tag-badge green-badge"><i data-lucide="shield"></i> Premium Components, Ultimate Value</span>
+                            <span class="tag-badge cyan-badge"><i data-lucide="wrench"></i> Flat £30 Assembly Fee</span>
                         </div>
                         <h1 class="hero-title">Extreme Gaming PC Power.<br><span class="gradient-text">Half the Price.</span></h1>
-                        <p class="hero-subtitle">We build premium, high-performance PCs using thoroughly tested, certified refurbished parts. Same performance, massive savings, and zero e-waste.</p>
+                        <p class="hero-subtitle">We build premium, high-performance PCs using thoroughly tested, certified components. Same performance, massive savings, and zero e-waste.</p>
                         <div class="hero-actions">
                             <button class="btn btn-primary" onclick="showSection('shop')">
                                 <i data-lucide="shopping-bag"></i> Browse Pre-Builts
@@ -119,7 +121,7 @@
                             </div>
                             <div class="visual-footer showcase-footer">
                                 <div class="footer-hint">
-                                    <i data-lucide="check-circle"></i> Sourced from certified refurbishers, warrantied for 3 months.
+                                    <i data-lucide="check-circle"></i> Sourced from certified suppliers, warrantied for 3 months.
                                 </div>
                                 <button class="btn btn-primary btn-sm" onclick="selectBasePcInBuilder('high')">
                                     Customize Build <i data-lucide="arrow-right"></i>
@@ -142,15 +144,15 @@
                             <div class="value-icon-wrapper green-bg">
                                 <i data-lucide="dollar-sign"></i>
                             </div>
-                            <h3>Used Parts = Big Savings</h3>
-                            <p>CPUs, GPUs, and motherboards don't degrade in speed over time. We source premium pre-owned components, clean them, and pass 100% of the savings directly to you.</p>
+                            <h3>Premium Parts = Big Savings</h3>
+                            <p>Certified hardware delivers identical performance to off-the-shelf components. We source high-grade components directly and pass 100% of the savings to you.</p>
                         </div>
                         <div class="value-card glass-card">
                             <div class="value-icon-wrapper cyan-bg">
                                 <i data-lucide="wrench"></i>
                             </div>
-                            <h3>Flat £49 Building Fee</h3>
-                            <p>Other PC builders charge 15-25% markups on parts. We charge a flat £49 building and testing fee. Transparent, fair, and incredibly cheap.</p>
+                            <h3>Flat £30 Assembly Fee</h3>
+                            <p>Other PC builders charge 15-25% markups on parts. We charge a flat £30 assembly and testing fee. Transparent, fair, and incredibly cheap.</p>
                         </div>
                         <div class="value-card glass-card">
                             <div class="value-icon-wrapper purple-bg">
@@ -164,7 +166,7 @@
                                 <i data-lucide="leaf"></i>
                             </div>
                             <h3>Eco-Friendly Gaming</h3>
-                            <p>Building with refurbished components keeps hazardous heavy metals out of landfills and avoids the huge carbon footprint of manufacturing new silicon.</p>
+                            <p>Building certified eco-friendly systems reduces carbon footprint by minimizing raw silicon demand and preventing unnecessary electronic waste.</p>
                         </div>
                     </div>
                 </div>
@@ -176,7 +178,7 @@
                     <div class="calculator-card glass-card">
                         <div class="calculator-grid">
                             <div class="calculator-inputs">
-                                <h2>Calculate Your <span class="gradient-text green-cyan">Used Savings</span></h2>
+                                <h2>Calculate Your <span class="gradient-text green-cyan">Certified Savings</span></h2>
                                 <p>Drag the slider to choose your target gaming budget and see how much more performance you get with PCPower compared to buying brand new.</p>
                                 
                                 <div class="slider-container">
@@ -184,12 +186,13 @@
                                         <span>Target PC Budget</span>
                                         <span class="budget-value" id="budgetValue">£500</span>
                                     </div>
-                                    <input type="range" min="200" max="800" step="100" value="500" class="custom-slider" id="budgetSlider">
+                                    <input type="range" min="200" max="1000" step="100" value="500" class="custom-slider" id="budgetSlider">
                                     <div class="slider-ticks">
                                         <span>£200</span>
                                         <span>£400</span>
                                         <span>£600</span>
                                         <span>£800</span>
+                                        <span>£1000</span>
                                     </div>
                                 </div>
 
@@ -215,7 +218,7 @@
                                     </div>
                                     <div class="divider-line">VS</div>
                                     <div class="comp-col pcpower-col">
-                                        <h4>PCPower (Used + £49 Fee)</h4>
+                                        <h4>PCPower (Certified + £30 Fee)</h4>
                                         <ul class="comp-list" id="pcpowerList">
                                             <!-- Dynamically generated -->
                                         </ul>
@@ -277,7 +280,7 @@
             <div class="container">
                 <div class="section-title-wrapper text-center">
                     <h1 class="section-title">The PCPower Customizer</h1>
-                    <p class="section-subtitle">Select a base bundle, customize specs with used or brand new parts, and see live pricing details.</p>
+                    <p class="section-subtitle">Select a base bundle, customize specs with certified or brand new parts, and see live pricing details.</p>
                 </div>
 
                 <div class="builder-layout">
@@ -301,6 +304,20 @@
 
                         <div class="option-group">
                             <label class="group-title"><i data-lucide="zap"></i> 3. GPU / Graphics Card</label>
+                            <div class="gpu-tabs">
+                                <button class="gpu-tab active" id="gpuTabAmd" onclick="setGpuBrand('amd')">
+                                    <svg class="brand-logo" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M22 2H10l4 4h4v4l4 4V2zM2 14l4 4h4v-4H6v-4l-4-4v8zM14 10H10v4h4v-4z"/>
+                                    </svg>
+                                    AMD Radeon
+                                </button>
+                                <button class="gpu-tab" id="gpuTabNvidia" onclick="setGpuBrand('nvidia')">
+                                    <svg class="brand-logo" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5c-3-.5-5.5-2.5-6-5 .5 2 2 3.5 3.5 3.5 2 0 3.5-1.5 3.5-3.5 0-1.5-1-3-2.5-3.5 2.5.5 4 3 3.5 6-.5 1.5-1.5 2.5-2 2.5z"/>
+                                    </svg>
+                                    NVIDIA GeForce
+                                </button>
+                            </div>
                             <div class="upgrades-select-grid" id="gpuUpgrades">
                                 <!-- Dynamically filled -->
                             </div>
@@ -315,9 +332,32 @@
                         </div>
 
                         <div class="option-group">
-                            <label class="group-title"><i data-lucide="hard-drive"></i> 5. Storage / SSD</label>
-                            <div class="upgrades-select-grid" id="storageUpgrades">
+                            <label class="group-title"><i data-lucide="hard-drive"></i> 5a. Primary SSD (Select One)</label>
+                            <div class="upgrades-select-grid" id="ssdUpgrades">
                                 <!-- Dynamically filled -->
+                            </div>
+                        </div>
+
+                        <div class="option-group">
+                            <label class="group-title"><i data-lucide="hard-drive"></i> 5b. Secondary HDD (Optional, Select One)</label>
+                            <div class="upgrades-select-grid" id="hddUpgrades">
+                                <!-- Dynamically filled -->
+                            </div>
+                            <div id="hddDoubleSwapContainer" class="hdd-swap-container" style="display: none; margin-top: 12px; padding: 12px; background: rgba(0, 242, 254, 0.05); border: 1px dashed rgba(0, 242, 254, 0.2); border-radius: 8px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <i data-lucide="help-circle" style="color: var(--accent-cyan); width: 20px; height: 20px;"></i>
+                                        <div>
+                                            <span style="font-weight: 600; font-size: 0.9rem; color: var(--text-primary);">Swap for 2x 1TB HDD?</span>
+                                            <p style="font-size: 0.75rem; color: var(--text-secondary); margin: 2px 0 0 0;">Get 2x 1TB HDDs instead of 1x 2TB HDD</p>
+                                        </div>
+                                    </div>
+                                    <div class="qty-control" style="margin: 0;">
+                                        <button class="qty-btn" onclick="setDoubleHddCount(0)">-</button>
+                                        <span class="qty-val" id="doubleHddCount">0</span>
+                                        <button class="qty-btn" onclick="setDoubleHddCount(1)">+</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -331,7 +371,7 @@
                             <div class="preview-details">
                                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
                                     <h3 id="builderPcName" style="margin-bottom:0;">Custom Rig</h3>
-                                    <span style="background:rgba(57, 255, 20, 0.1); border:1px solid rgba(57, 255, 20, 0.2); color:var(--accent-green); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px; display:inline-flex; align-items:center; gap:4px;"><i data-lucide="leaf" style="width:12px;height:12px;"></i> Used CPU & GPU Sourced</span>
+                                    <span style="background:rgba(0, 242, 254, 0.1); border:1px solid rgba(0, 242, 254, 0.2); color:var(--accent-cyan); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px; display:inline-flex; align-items:center; gap:4px;"><i data-lucide="shield" style="width:12px;height:12px;"></i> Premium Hardware Sourced</span>
                                 </div>
                                 <p class="preview-description" id="builderPcDesc">Loading base specifications...</p>
                                 
@@ -341,19 +381,19 @@
                                         <!-- Dynamic list -->
                                     </ul>
                                 </div>
-
+ 
                                 <div class="price-breakdown-box">
                                     <div class="breakdown-line">
-                                        <span>Parts Total (Used Savings)</span>
+                                        <span>Parts Total</span>
                                         <span id="builderPartsCost">£0.00</span>
                                     </div>
                                     <div class="breakdown-line">
-                                        <span class="green-text">Used Parts Discount</span>
+                                        <span class="green-text">PCPower System Discount</span>
                                         <span class="green-text" id="builderSavingsCost">-£0.00</span>
                                     </div>
                                     <div class="breakdown-line font-bold border-bottom">
-                                        <span>Flat PCPower Build Fee</span>
-                                        <span class="cyan-text" id="builderFeeCost">£49.00</span>
+                                        <span>Flat PCPower Assembly Fee</span>
+                                        <span class="cyan-text" id="builderFeeCost">£30.00</span>
                                     </div>
                                     <div class="breakdown-line total-line">
                                         <span>Total Est. Price</span>
@@ -382,17 +422,17 @@
                 <div class="faq-accordion">
                     <div class="faq-item glass-card">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <h3>How do you source and test your used parts?</h3>
+                            <h3>How do you source and test your certified parts?</h3>
                             <i data-lucide="chevron-down" class="accordion-arrow"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>We source parts from certified refurbishers, bulk corporate liquidations, and gamers upgrading their gear. Each component undergoes a rigorous 100-point testing system. CPUs are stress-tested in Prime95, GPUs undergo thermal profiling and benchmark runs in FurMark, RAM is checked using MemTest86, and motherboards are checked for visual damage, capacitors, and port integrity. Only 100% healthy components make the cut.</p>
+                            <p>We source parts from certified channels, bulk corporate liquidations, and gamers upgrading their gear. Each component undergoes a rigorous 100-point testing system. CPUs are stress-tested in Prime95, GPUs undergo thermal profiling and benchmark runs in FurMark, RAM is checked using MemTest86, and motherboards are checked for visual damage, capacitors, and port integrity. Only 100% healthy components make the cut.</p>
                         </div>
                     </div>
 
                     <div class="faq-item glass-card">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <h3>Is there a warranty on PCs containing used parts?</h3>
+                            <h3>Is there a warranty on PCs containing certified parts?</h3>
                             <i data-lucide="chevron-down" class="accordion-arrow"></i>
                         </div>
                         <div class="faq-answer">
@@ -402,21 +442,21 @@
 
                     <div class="faq-item glass-card">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <h3>Which parts are new and which are used?</h3>
+                            <h3>Which parts are new and which are certified?</h3>
                             <i data-lucide="chevron-down" class="accordion-arrow"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>We believe in combining safety with maximum value. That's why high-wear items like **SSDs (storage), Power Supplies (PSUs), and PC Cases** are always **100% Brand New**. High-value silicon components like **CPUs, GPUs, Motherboards, and RAM** are sourced as **Certified Refurbished**, saving you hundreds of dollars while retaining perfect structural and computational efficiency.</p>
+                            <p>We believe in combining safety with maximum value. That's why high-wear items like **SSDs (storage), Power Supplies (PSUs), and PC Cases** are always **100% Brand New**. High-value silicon components like **CPUs, GPUs, Motherboards, and RAM** are sourced as **Certified and thoroughly tested**, saving you hundreds of dollars while retaining perfect structural and computational efficiency.</p>
                         </div>
                     </div>
 
                     <div class="faq-item glass-card">
                         <div class="faq-question" onclick="toggleFaq(this)">
-                            <h3>Why is your building fee so low?</h3>
+                            <h3>Why is your assembly fee so low?</h3>
                             <i data-lucide="chevron-down" class="accordion-arrow"></i>
                         </div>
                         <div class="faq-answer">
-                            <p>Traditional pre-built manufacturers inflate the cost of individual components to hide high labor costs and markups. We charge a simple, flat building fee of **£49**. Our high-volume assembly line allows us to build efficiently, test rigs in parallel, and keep margins razor-thin to prioritize gamer value and reduce electronic waste.</p>
+                            <p>Traditional pre-built manufacturers inflate the cost of individual components to hide high labor costs and markups. We charge a simple, flat assembly fee of **£30**. Our high-volume assembly line allows us to build efficiently, test rigs in parallel, and keep margins razor-thin to prioritize gamer value and reduce electronic waste.</p>
                         </div>
                     </div>
 
@@ -427,6 +467,61 @@
                         </div>
                         <div class="faq-answer">
                             <p>Currently, we only assemble systems using components from our own certified warehouse inventory. This ensures that every part is fully pre-tested and covered under our unified 3-month system warranty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WARRANTY SECTION ================= -->
+        <section id="warranty" class="view-section">
+            <div class="container" style="max-width: 800px; padding: 64px 24px;">
+                <div class="section-title-wrapper text-center">
+                    <h1 class="section-title">Warranty Coverage</h1>
+                    <p class="section-subtitle">Read about our comprehensive warranty protection plan.</p>
+                </div>
+                <div class="glass-card" style="padding: 32px; margin-top: 32px;">
+                    <h2>Comprehensive 3-Month Warranty</h2>
+                    <p style="color: var(--text-secondary); margin-top: 16px; line-height: 1.6;">At PCPower, we stand behind the build quality of our systems. That's why every single custom or pre-assembled PC comes standard with our comprehensive 3-month hardware warranty.</p>
+                    
+                    <h3 style="margin-top: 24px;">What is Covered?</h3>
+                    <ul style="color: var(--text-secondary); margin-top: 8px; padding-left: 20px; line-height: 1.6;">
+                        <li>Hardware failure under normal operation (CPUs, GPUs, RAM, Motherboards, SSDs, HDDs, Power Supplies, and Fans).</li>
+                        <li>Structural assembly integrity and cooling performance.</li>
+                        <li>Diagnostic and repair services for warrantied hardware issues.</li>
+                    </ul>
+
+                    <h3 style="margin-top: 24px;">How to Claim Warranty?</h3>
+                    <p style="color: var(--text-secondary); margin-top: 8px; line-height: 1.6;">If you experience any hardware issues, simply contact our dedicated warranty department at <a href="mailto:warranty@questrr.store" style="color: var(--accent-cyan); font-weight: 600;">warranty@questrr.store</a>. Our certified engineers will help you diagnose the issue and arrange for repair or replacement of the failed components immediately.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT US SECTION ================= -->
+        <section id="contact" class="view-section">
+            <div class="container" style="max-width: 800px; padding: 64px 24px;">
+                <div class="section-title-wrapper text-center">
+                    <h1 class="section-title">Contact Us</h1>
+                    <p class="section-subtitle">Got questions? We have answers. Get in touch with our support team.</p>
+                </div>
+                <div class="glass-card" style="padding: 32px; margin-top: 32px; text-align: center;">
+                    <h2>Get in Touch</h2>
+                    <p style="color: var(--text-secondary); margin-top: 16px; line-height: 1.6;">Whether you need assistance choosing the right build tier, customizing upgrade parts, checking on your order, or asking questions about our assembly process, we are here to help.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 24px; margin-top: 32px; align-items: center;">
+                        <div style="display: flex; align-items: center; gap: 12px; text-align: left; width: 100%; max-width: 320px; background: rgba(255, 255, 255, 0.02); padding: 16px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                            <i data-lucide="mail" style="color: var(--accent-cyan); width: 24px; height: 24px; flex-shrink: 0;"></i>
+                            <div>
+                                <span style="font-weight: 600; color: var(--text-primary); display: block;">General Inquiries</span>
+                                <a href="mailto:info@questrr.store" style="color: var(--accent-cyan); font-weight: 600;">info@questrr.store</a>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px; text-align: left; width: 100%; max-width: 320px; background: rgba(255, 255, 255, 0.02); padding: 16px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
+                            <i data-lucide="shield" style="color: var(--accent-green); width: 24px; height: 24px; flex-shrink: 0;"></i>
+                            <div>
+                                <span style="font-weight: 600; color: var(--text-primary); display: block;">Warranty & Repairs</span>
+                                <a href="mailto:warranty@questrr.store" style="color: var(--accent-green); font-weight: 600;">warranty@questrr.store</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -592,7 +687,7 @@
         <div class="container footer-grid">
             <div class="footer-brand">
                 <a href="#" class="logo-text">PC<span class="highlight-text">POWER</span></a>
-                <p>High-value PC pre-builts using certified used components and ultra-low building fees. Reducing e-waste, maximizing gaming frame rates.</p>
+                <p>High-value PC pre-builts using certified components and ultra-low assembly fees. Reducing e-waste, maximizing gaming frame rates.</p>
                 <div class="social-links">
                     <a href="#"><i data-lucide="twitter"></i></a>
                     <a href="#"><i data-lucide="instagram"></i></a>
@@ -609,9 +704,9 @@
 
             <div class="footer-links">
                 <h4>Support</h4>
-                <a href="#faq" onclick="showSection('faq')">Warranty & Sourcing FAQ</a>
-                <a href="#">Shipping & Returns</a>
-                <a href="#">Contact Us</a>
+                <a href="#warranty" onclick="showSection('warranty')">Warranty Protection</a>
+                <a href="#contact" onclick="showSection('contact')">Contact Support</a>
+                <a href="#faq" onclick="showSection('faq')">F.A.Q.</a>
             </div>
 
             <div class="footer-links">
@@ -642,3 +737,4 @@
     <script type="module" src="/app.js"></script>
 </body>
 </html>
+

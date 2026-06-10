@@ -14,8 +14,11 @@ const state = {
     customizer: {
         cpu: 'ryzen_5600',
         gpu: 'rx_6700xt',
+        gpuBrand: 'amd',
         ram: 'ram_16gb',
-        storage: 'ssd_500gb'
+        ssd: 'ssd_500gb',
+        hdd: 'none',
+        useDoubleHdd: false
     },
     promoApplied: null,
     promoDiscount: 0,
@@ -34,11 +37,11 @@ const products = [
         image: '',
         category: 'budget',
         specs: [
-            { name: 'AMD Ryzen 3 3200G CPU', source: 'Refurbished' },
-            { name: 'Radeon RX 570 4GB GPU', source: 'Refurbished' },
-            { name: '8GB DDR4 RAM', source: 'Refurbished' },
-            { name: '256GB SSD', source: 'Brand New' },
-            { name: '450W Gold Rated PSU', source: 'Brand New' },
+            { name: 'AMD Ryzen 3 3200G CPU', source: 'Second-Hand' },
+            { name: 'Radeon Vega 8 Integrated', source: 'Shared' },
+            { name: '16GB DDR4 RAM', source: 'Second-Hand' },
+            { name: '256GB NVMe SSD', source: 'Brand New' },
+            { name: '500W Bronze PSU', source: 'Brand New' },
             { name: 'Sleek Micro-ATX Case', source: 'Brand New' }
         ]
     },
@@ -52,12 +55,12 @@ const products = [
         image: '',
         category: 'budget',
         specs: [
-            { name: 'AMD Ryzen 5 3600 CPU', source: 'Refurbished' },
-            { name: 'Radeon RX 580 8GB GPU', source: 'Refurbished' },
-            { name: '8GB DDR4 RAM', source: 'Refurbished' },
-            { name: '256GB NVMe SSD', source: 'Brand New' },
+            { name: 'AMD Ryzen 5 3600 CPU', source: 'Second-Hand' },
+            { name: 'Radeon RX 570 4GB GPU', source: 'Second-Hand' },
+            { name: '16GB DDR4 RAM', source: 'Second-Hand' },
+            { name: '500GB NVMe SSD', source: 'Brand New' },
             { name: '500W Bronze PSU', source: 'Brand New' },
-            { name: 'Sleek Glass MicroATX Case', source: 'Brand New' }
+            { name: 'Sleek Tempered Glass Case', source: 'Brand New' }
         ]
     },
     {
@@ -70,12 +73,13 @@ const products = [
         image: '',
         category: 'mid',
         specs: [
-            { name: 'AMD Ryzen 5 4100 CPU', source: 'Refurbished' },
-            { name: 'Radeon RX 6500 XT 4GB GPU', source: 'Refurbished' },
-            { name: '16GB DDR4 RAM', source: 'Refurbished' },
+            { name: 'AMD Ryzen 7 5700X CPU', source: 'Second-Hand' },
+            { name: 'Radeon RX 570 4GB GPU', source: 'Second-Hand' },
+            { name: '16GB DDR4 RAM', source: 'Second-Hand' },
             { name: '500GB NVMe SSD', source: 'Brand New' },
-            { name: '500W Bronze PSU', source: 'Brand New' },
-            { name: 'Sleek Tempered Glass Case', source: 'Brand New' }
+            { name: '500GB HDD Storage', source: 'Second-Hand' },
+            { name: '600W Gold PSU', source: 'Brand New' },
+            { name: 'Sleek Airflow Case', source: 'Brand New' }
         ]
     },
     {
@@ -88,12 +92,12 @@ const products = [
         image: '',
         category: 'mid',
         specs: [
-            { name: 'AMD Ryzen 5 5600 CPU', source: 'Refurbished' },
-            { name: 'Radeon RX 6700 XT 12GB GPU', source: 'Refurbished' },
-            { name: '16GB DDR4 RAM', source: 'Refurbished' },
+            { name: 'AMD Ryzen 5 5600 CPU', source: 'Second-Hand' },
+            { name: 'Radeon RX 6700 XT 12GB GPU', source: 'Second-Hand' },
+            { name: '16GB DDR4 RAM', source: 'Second-Hand' },
             { name: '500GB NVMe SSD', source: 'Brand New' },
-            { name: '500GB HDD Storage', source: 'Refurbished' },
-            { name: '500W Bronze PSU', source: 'Brand New' },
+            { name: '500GB HDD Storage', source: 'Second-Hand' },
+            { name: '600W Gold PSU', source: 'Brand New' },
             { name: 'Sleek Airflow Case', source: 'Brand New' }
         ]
     },
@@ -107,13 +111,12 @@ const products = [
         image: '',
         category: 'high',
         specs: [
-            { name: 'AMD Ryzen 7 5700X CPU', source: 'Refurbished' },
-            { name: 'Radeon RX 6800 XT 16GB GPU', source: 'Refurbished' },
-            { name: '16GB DDR4 RAM', source: 'Refurbished' },
-            { name: '500GB NVMe SSD', source: 'Brand New' },
-            { name: '500GB HDD Storage', source: 'Refurbished' },
+            { name: 'AMD Ryzen 5 5600 CPU', source: 'Second-Hand' },
+            { name: 'Radeon RX 6800 XT 16GB GPU', source: 'Second-Hand' },
+            { name: '16GB DDR4 RAM', source: 'Second-Hand' },
+            { name: '1TB NVMe SSD', source: 'Brand New' },
             { name: '600W Gold PSU', source: 'Brand New' },
-            { name: 'Tempered Glass Case', source: 'Brand New' }
+            { name: 'Sleek Glass MicroATX Case', source: 'Brand New' }
         ]
     },
     {
@@ -126,13 +129,13 @@ const products = [
         image: '',
         category: 'high',
         specs: [
-            { name: 'AMD Ryzen 7 5800X CPU', source: 'Refurbished' },
-            { name: 'Radeon RX 6950 XT 16GB GPU', source: 'Refurbished' },
-            { name: '16GB DDR4 RAM', source: 'Refurbished' },
-            { name: '1TB NVMe Gen4 SSD', source: 'Brand New' },
-            { name: '1TB HDD Storage', source: 'Refurbished' },
-            { name: '700W Gold PSU', source: 'Brand New' },
-            { name: 'Premium Dual Chamber Case', source: 'Brand New' }
+            { name: 'AMD Ryzen 5 5600 CPU', source: 'Second-Hand' },
+            { name: 'Radeon RX 6950 XT 16GB GPU', source: 'Second-Hand' },
+            { name: '16GB DDR4 RAM', source: 'Second-Hand' },
+            { name: '1TB NVMe SSD', source: 'Brand New' },
+            { name: '500GB HDD Storage', source: 'Second-Hand' },
+            { name: '600W Gold PSU', source: 'Brand New' },
+            { name: 'Sleek Tempered Glass Case', source: 'Brand New' }
         ]
     },
     {
@@ -145,13 +148,32 @@ const products = [
         image: '',
         category: 'high',
         specs: [
-            { name: 'AMD Ryzen 9 5900X CPU', source: 'Refurbished' },
-            { name: 'Radeon RX 7900 XT 20GB GPU', source: 'Refurbished' },
-            { name: '32GB DDR4 RAM', source: 'Refurbished' },
-            { name: '1TB NVMe Gen4 SSD', source: 'Brand New' },
-            { name: '2TB HDD Storage', source: 'Refurbished' },
+            { name: 'AMD Ryzen 7 5700X CPU', source: 'Second-Hand' },
+            { name: 'Radeon RX 6950 XT 16GB GPU', source: 'Second-Hand' },
+            { name: '32GB DDR4 RAM', source: 'Second-Hand' },
+            { name: '1TB NVMe SSD', source: 'Brand New' },
+            { name: '500GB HDD Storage', source: 'Second-Hand' },
+            { name: '700W Gold PSU', source: 'Brand New' },
+            { name: 'Tempered Glass Case', source: 'Brand New' }
+        ]
+    },
+    {
+        id: 'tier1000',
+        name: '£1000 Ultimate Titan',
+        price: 1000.00,
+        retailPrice: 1720.00,
+        ecoSavings: '27.5kg e-waste | 340kg CO2',
+        description: 'The absolute peak of gaming performance. Maxed out with premium components for high frame rate 4K gaming and heavy productivity.',
+        image: '',
+        category: 'high',
+        specs: [
+            { name: 'AMD Ryzen 9 5900X CPU', source: 'Second-Hand' },
+            { name: 'Radeon RX 9070 XT 16GB GPU', source: 'Second-Hand' },
+            { name: '16GB DDR4 RAM', source: 'Second-Hand' },
+            { name: '1TB NVMe SSD', source: 'Brand New' },
+            { name: '2TB HDD Storage', source: 'Second-Hand' },
             { name: '750W Gold PSU', source: 'Brand New' },
-            { name: 'Panoramic Glass Case', source: 'Brand New' }
+            { name: 'Premium Dual Chamber Case', source: 'Brand New' }
         ]
     }
 ];
@@ -159,56 +181,123 @@ const products = [
 // Configurator Upgrades Data
 const upgrades = {
     cpu: [
-        { id: 'ryzen_3200g', name: 'AMD Ryzen 3 3200G', price: 50, source: 'Refurbished' },
-        { id: 'ryzen_3600', name: 'AMD Ryzen 5 3600', price: 60, source: 'Refurbished' },
-        { id: 'ryzen_4100', name: 'AMD Ryzen 5 4100', price: 65, source: 'Refurbished' },
-        { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 90, source: 'Refurbished' },
-        { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 130, source: 'Refurbished' },
-        { id: 'ryzen_5800x', name: 'AMD Ryzen 7 5800X', price: 140, source: 'Refurbished' },
-        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 210, source: 'Refurbished' }
+        { id: 'ryzen_3200g', name: 'AMD Ryzen 3 3200G', price: 50, source: 'Second-Hand' },
+        { id: 'ryzen_3600', name: 'AMD Ryzen 5 3600', price: 60, source: 'Second-Hand' },
+        { id: 'ryzen_4100', name: 'AMD Ryzen 5 4100', price: 65, source: 'Second-Hand' },
+        { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 90, source: 'Second-Hand' },
+        { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 130, source: 'Second-Hand' },
+        { id: 'ryzen_5800x', name: 'AMD Ryzen 7 5800X', price: 140, source: 'Second-Hand' },
+        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 210, source: 'Second-Hand' }
     ],
     gpu: [
-        { id: 'rx_570', name: 'Radeon RX 570 4GB', price: 45, source: 'Refurbished' },
-        { id: 'rx_580', name: 'Radeon RX 580 8GB', price: 65, source: 'Refurbished' },
-        { id: 'rx_6500xt', name: 'Radeon RX 6500 XT 4GB', price: 95, source: 'Refurbished' },
-        { id: 'rx_6700xt', name: 'Radeon RX 6700 XT 12GB', price: 180, source: 'Refurbished' },
-        { id: 'rx_6800xt', name: 'Radeon RX 6800 XT 16GB', price: 260, source: 'Refurbished' },
-        { id: 'rx_6950xt', name: 'Radeon RX 6950 XT 16GB', price: 330, source: 'Refurbished' },
-        { id: 'rx_7900xt', name: 'Radeon RX 7900 XT 20GB', price: 500, source: 'Refurbished' }
+        { id: 'gpu_integrated', name: 'Radeon Vega Integrated', price: 0, source: 'Shared', brand: 'amd' },
+        { id: 'rx_570', name: 'Radeon RX 570 4GB', price: 60, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_580', name: 'Radeon RX 580 8GB', price: 65, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_6600', name: 'Radeon RX 6600 8GB', price: 140, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_6600xt', name: 'Radeon RX 6600 XT 8GB', price: 170, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_6650xt', name: 'Radeon RX 6650 XT 8GB', price: 180, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_6700xt', name: 'Radeon RX 6700 XT 12GB', price: 200, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_6800', name: 'Radeon RX 6800 16GB', price: 270, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_6800xt', name: 'Radeon RX 6800 XT 16GB', price: 300, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_6950xt', name: 'Radeon RX 6950 XT 16GB', price: 380, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_7900xt', name: 'Radeon RX 7900 XT 20GB', price: 570, source: 'Second-Hand', brand: 'amd' },
+        { id: 'rx_9070xt', name: 'Radeon RX 9070 XT 16GB', price: 720, source: 'Second-Hand', brand: 'amd' },
+        
+        { id: 'gtx_1060', name: 'GeForce GTX 1060 6GB', price: 70, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'gtx_1660s', name: 'GeForce GTX 1660 Super 6GB', price: 110, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'rtx_2060', name: 'GeForce RTX 2060 6GB', price: 140, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'rtx_3060', name: 'GeForce RTX 3060 12GB', price: 190, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'rtx_3070', name: 'GeForce RTX 3070 8GB', price: 260, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'rtx_3080', name: 'GeForce RTX 3080 10GB', price: 380, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'rtx_4070', name: 'GeForce RTX 4070 12GB', price: 530, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'rtx_4070ti', name: 'GeForce RTX 4070 Ti 12GB', price: 680, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'rtx_4080', name: 'GeForce RTX 4080 16GB', price: 850, source: 'Second-Hand', brand: 'nvidia' },
+        { id: 'rtx_4090', name: 'GeForce RTX 4090 24GB', price: 1450, source: 'Second-Hand', brand: 'nvidia' }
     ],
     ram: [
-        { id: 'ram_8gb', name: '8GB DDR4 RAM', price: 20, source: 'Refurbished' },
-        { id: 'ram_16gb', name: '16GB DDR4 RAM', price: 40, source: 'Refurbished' },
-        { id: 'ram_32gb', name: '32GB DDR4 RAM', price: 75, source: 'Refurbished' }
+        { id: 'ram_8gb', name: '8GB DDR4 RAM', price: 20, source: 'Second-Hand' },
+        { id: 'ram_16gb', name: '16GB DDR4 RAM', price: 40, source: 'Second-Hand' },
+        { id: 'ram_32gb', name: '32GB DDR4 RAM', price: 75, source: 'Second-Hand' }
     ],
-    storage: [
-        { id: 'ssd_256gb', name: '256GB SSD', price: 15, source: 'Brand New' },
-        { id: 'ssd_500gb', name: '500GB NVMe SSD', price: 30, source: 'Brand New' },
-        { id: 'ssd_1tb', name: '1TB NVMe SSD', price: 68, source: 'Brand New' }
+    ssd: [
+        { id: 'ssd_256gb', name: '256GB NVMe SSD', source: 'Brand New' },
+        { id: 'ssd_500gb', name: '500GB NVMe SSD', source: 'Brand New' },
+        { id: 'ssd_1tb', name: '1TB NVMe SSD', source: 'Brand New' }
+    ],
+    hdd: [
+        { id: 'none', name: 'No Secondary HDD', source: 'N/A' },
+        { id: 'hdd_500gb', name: '500GB HDD', source: 'Second-Hand' },
+        { id: 'hdd_1tb', name: '1TB HDD', source: 'Second-Hand' },
+        { id: 'hdd_2tb', name: '2TB HDD', source: 'Second-Hand' }
     ]
 };
 
 // Map each base PC ID to its standard parts
 const basePartsMapping = {
-    tier200: { cpu: 'ryzen_3200g', gpu: 'rx_570', ram: 'ram_8gb', storage: 'ssd_256gb' },
-    tier300: { cpu: 'ryzen_3600', gpu: 'rx_580', ram: 'ram_8gb', storage: 'ssd_256gb' },
-    tier400: { cpu: 'ryzen_4100', gpu: 'rx_6500xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
-    tier500: { cpu: 'ryzen_5600', gpu: 'rx_6700xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
-    tier600: { cpu: 'ryzen_5700x', gpu: 'rx_6800xt', ram: 'ram_16gb', storage: 'ssd_500gb' },
-    tier700: { cpu: 'ryzen_5800x', gpu: 'rx_6950xt', ram: 'ram_16gb', storage: 'ssd_1tb' },
-    tier800: { cpu: 'ryzen_5900x', gpu: 'rx_7900xt', ram: 'ram_32gb', storage: 'ssd_1tb' }
+    tier200: { cpu: 'ryzen_3200g', gpu: 'gpu_integrated', ram: 'ram_16gb', ssd: 'ssd_256gb', hdd: 'none' },
+    tier300: { cpu: 'ryzen_3600', gpu: 'rx_570', ram: 'ram_16gb', ssd: 'ssd_500gb', hdd: 'none' },
+    tier400: { cpu: 'ryzen_5700x', gpu: 'rx_570', ram: 'ram_16gb', ssd: 'ssd_500gb', hdd: 'hdd_500gb' },
+    tier500: { cpu: 'ryzen_5600', gpu: 'rx_6700xt', ram: 'ram_16gb', ssd: 'ssd_500gb', hdd: 'hdd_500gb' },
+    tier600: { cpu: 'ryzen_5600', gpu: 'rx_6800xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'none' },
+    tier700: { cpu: 'ryzen_5600', gpu: 'rx_6950xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'hdd_500gb' },
+    tier800: { cpu: 'ryzen_5700x', gpu: 'rx_6950xt', ram: 'ram_32gb', ssd: 'ssd_1tb', hdd: 'hdd_500gb' },
+    tier1000: { cpu: 'ryzen_5900x', gpu: 'rx_9070xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'hdd_2tb' }
 };
 
 // Part absolute pricing
 const partAbsolutePrices = {
     ryzen_3200g: 50, ryzen_3600: 60, ryzen_4100: 65, ryzen_5600: 90, ryzen_5700x: 130, ryzen_5800x: 140, ryzen_5900x: 210,
-    rx_570: 45, rx_580: 65, rx_6500xt: 95, rx_6700xt: 180, rx_6800xt: 260, rx_6950xt: 330, rx_7900xt: 500,
-    ram_8gb: 20, ram_16gb: 40, ram_32gb: 75,
-    ssd_256gb: 15, ssd_500gb: 30, ssd_1tb: 68
+    gpu_integrated: 0,
+    rx_570: 60, rx_580: 65, rx_6600: 140, rx_6600xt: 170, rx_6650xt: 180, rx_6700xt: 200, rx_6800: 270, rx_6800xt: 300, rx_6950xt: 380, rx_7900xt: 570, rx_9070xt: 720,
+    gtx_1060: 70, gtx_1660s: 110, rtx_2060: 140, rtx_3060: 190, rtx_3070: 260, rtx_3080: 380, rtx_4070: 530, rtx_4070ti: 680, rtx_4080: 850, rtx_4090: 1450,
+    ram_8gb: 20, ram_16gb: 40, ram_32gb: 75
 };
 
+// Helper price calculator functions for storage
+function getSsdPrice(ssdId, basePcPrice) {
+    if (ssdId === 'ssd_256gb') {
+        return 0;
+    } else if (ssdId === 'ssd_500gb') {
+        return basePcPrice >= 400 ? 0 : 30;
+    } else if (ssdId === 'ssd_1tb') {
+        return basePcPrice >= 600 ? 0 : 50;
+    }
+    return 0;
+}
+
+// Helper price calculator functions for HDD
+function getHddPrice(hddId, basePcPrice, useDoubleHdd) {
+    if (useDoubleHdd) {
+        let single1TbPrice = 0;
+        if (basePcPrice > 450) {
+            single1TbPrice = 0;
+        } else if (basePcPrice > 350) {
+            single1TbPrice = 10;
+        } else {
+            single1TbPrice = 40;
+        }
+        return single1TbPrice * 2;
+    }
+
+    if (hddId === 'none') {
+        return 0;
+    } else if (hddId === 'hdd_500gb') {
+        return basePcPrice > 350 ? 0 : 20;
+    } else if (hddId === 'hdd_1tb') {
+        if (basePcPrice > 450) return 0;
+        if (basePcPrice > 350) return 10;
+        return 40;
+    } else if (hddId === 'hdd_2tb') {
+        if (basePcPrice > 600) return 0;
+        if (basePcPrice > 450) return 20;
+        if (basePcPrice > 350) return 60;
+        return 80;
+    }
+    return 0;
+}
+
 // Constant Build Fee
-const FLAT_BUILD_FEE = 49.00;
+const FLAT_BUILD_FEE = 30.00;
 
 // Initialize Application
 function initApp() {
@@ -299,11 +388,10 @@ function renderFeaturedProducts() {
                          spec.name.includes('GPU') ? 'zap' :
                          spec.name.includes('RAM') ? 'database' : 'hard-drive';
             
-            const sourceColor = spec.source === 'Refurbished' ? 'green-text' : 'cyan-text';
             specsHtml += `
                 <li class="${isHighlight ? 'highlight-spec' : ''}">
                     <i data-lucide="${icon}"></i>
-                    <span>${spec.name} <span class="${sourceColor}" style="font-size:0.75rem;">(${spec.source})</span></span>
+                    <span>${spec.name}</span>
                 </li>
             `;
         });
@@ -314,7 +402,6 @@ function renderFeaturedProducts() {
             </div>
             <div class="product-info">
                 <div class="product-badges-row" style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
-                    <span class="badge-used-inline" style="background:rgba(57, 255, 20, 0.1); border:1px solid rgba(57, 255, 20, 0.2); color:var(--accent-green); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px; display:inline-flex; align-items:center; gap:4px;"><i data-lucide="leaf" style="width:12px;height:12px;"></i> Certified Refurbished</span>
                     <span class="price-saving-badge-inline" style="background:rgba(0, 242, 254, 0.1); border:1px solid rgba(0, 242, 254, 0.2); color:var(--accent-cyan); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px;">Save £${savings.toFixed(0)}!</span>
                 </div>
                 <h3>${p.name}</h3>
@@ -359,11 +446,10 @@ function renderShopProducts() {
                          (spec.name.includes('SSD') || spec.name.includes('HDD')) ? 'hard-drive' :
                          spec.name.includes('PSU') ? 'power' : 'box';
             
-            const sourceColor = spec.source === 'Refurbished' ? 'green-text' : 'cyan-text';
             specsHtml += `
                 <li class="${isHighlight ? 'highlight-spec' : ''}">
                     <i data-lucide="${icon}"></i>
-                    <span>${spec.name} <span class="${sourceColor}" style="font-size:0.75rem;">(${spec.source})</span></span>
+                    <span>${spec.name}</span>
                 </li>
             `;
         });
@@ -374,7 +460,6 @@ function renderShopProducts() {
             </div>
             <div class="product-info">
                 <div class="product-badges-row" style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
-                    <span class="badge-used-inline" style="background:rgba(57, 255, 20, 0.1); border:1px solid rgba(57, 255, 20, 0.2); color:var(--accent-green); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px; display:inline-flex; align-items:center; gap:4px;"><i data-lucide="leaf" style="width:12px;height:12px;"></i> Refurbished Silicon</span>
                     <span class="price-saving-badge-inline" style="background:rgba(0, 242, 254, 0.1); border:1px solid rgba(0, 242, 254, 0.2); color:var(--accent-cyan); font-size:0.75rem; font-weight:600; padding:4px 8px; border-radius:4px;">Save £${savings.toFixed(0)}!</span>
                 </div>
                 <h3>${p.name}</h3>
@@ -424,38 +509,43 @@ function filterProducts(category) {
 const calculatorData = {
     200: {
         retail: ["AMD Athlon 3000G CPU (New)", "Radeon Vega 3 Graphics (Slow)", "4GB DDR4 RAM (New)", "128GB SATA SSD (New)", "Cheap Generic Office Case", "300W Basic Power Supply", "Retail Markup"],
-        pcpower: ["AMD Ryzen 3 3200G CPU (Used)", "Radeon RX 570 4GB GPU (Used)", "8GB DDR4 RAM (Used)", "256GB SSD (New)", "Sleek Micro-ATX Case (New)", "450W Gold Rated PSU (New)", "Flat £49 Building Fee"],
+        pcpower: ["AMD Ryzen 3 3200G CPU (Certified)", "Radeon Vega 8 Integrated (Shared)", "16GB DDR4 RAM (Certified)", "256GB NVMe SSD (Brand New)", "Sleek Micro-ATX Case (Brand New)", "500W Bronze PSU (Brand New)", "Flat £30 Assembly Fee"],
         savings: 120, fps: "65 FPS (1080p Esports)", ecoWaste: "8.5kg", co2: "110kg"
     },
     300: {
         retail: ["AMD Ryzen 3 3200G CPU (New)", "Radeon Vega 8 Graphics (Slow)", "8GB DDR4 RAM (New)", "256GB SATA SSD (New)", "Basic Office Case", "350W Basic Power Supply", "Retail Markup"],
-        pcpower: ["AMD Ryzen 5 3600 CPU (Used)", "Radeon RX 580 8GB GPU (Used)", "8GB DDR4 RAM (Used)", "256GB NVMe SSD (New)", "Sleek Glass MicroATX (New)", "500W Bronze PSU (New)", "Flat £49 Building Fee"],
+        pcpower: ["AMD Ryzen 5 3600 CPU (Certified)", "Radeon RX 570 4GB GPU (Certified)", "16GB DDR4 RAM (Certified)", "500GB NVMe SSD (Brand New)", "Sleek Tempered Glass Case (Brand New)", "500W Bronze PSU (Brand New)", "Flat £30 Assembly Fee"],
         savings: 180, fps: "85 FPS (1080p Esports)", ecoWaste: "10.2kg", co2: "130kg"
     },
     400: {
         retail: ["AMD Ryzen 3 4100 CPU (New)", "Radeon Vega Integrated (Slow)", "8GB DDR4 RAM (New)", "256GB NVMe SSD (New)", "Standard Office Case", "400W Bronze Power Supply", "Retail Markup"],
-        pcpower: ["AMD Ryzen 5 4100 CPU (Used)", "Radeon RX 6500 XT 4GB GPU (Used)", "16GB DDR4 RAM (Used)", "500GB NVMe SSD (New)", "Sleek Tempered Glass Case (New)", "500W Bronze PSU (New)", "Flat £49 Building Fee"],
+        pcpower: ["AMD Ryzen 7 5700X CPU (Certified)", "Radeon RX 570 4GB GPU (Certified)", "16GB DDR4 RAM (Certified)", "500GB NVMe SSD (Brand New)", "500GB HDD (Certified)", "Sleek Airflow Case (Brand New)", "600W Gold PSU (Brand New)", "Flat £30 Assembly Fee"],
         savings: 220, fps: "110 FPS (1080p High)", ecoWaste: "12.4kg", co2: "150kg"
     },
     500: {
         retail: ["AMD Ryzen 5 4500 CPU (New)", "NVIDIA GTX 1650 4GB GPU (New)", "8GB DDR4 RAM (New)", "256GB NVMe SSD (New)", "Basic Gaming Case", "450W Power Supply", "Retail Markup"],
-        pcpower: ["AMD Ryzen 5 5600 CPU (Used)", "Radeon RX 6700 XT 12GB GPU (Used)", "16GB DDR4 RAM (Used)", "500GB NVMe SSD (New)", "500GB HDD (Used)", "Sleek Airflow Case (New)", "500W Bronze PSU (New)", "Flat £49 Building Fee"],
+        pcpower: ["AMD Ryzen 5 5600 CPU (Certified)", "Radeon RX 6700 XT 12GB GPU (Certified)", "16GB DDR4 RAM (Certified)", "500GB NVMe SSD (Brand New)", "500GB HDD (Certified)", "Sleek Airflow Case (Brand New)", "600W Gold PSU (Brand New)", "Flat £30 Assembly Fee"],
         savings: 290, fps: "165 FPS (1080p Ultra)", ecoWaste: "14.8kg", co2: "180kg"
     },
     600: {
         retail: ["AMD Ryzen 5 5500 CPU (New)", "Radeon RX 6600 8GB GPU (New)", "16GB DDR4 RAM (New)", "512GB NVMe SSD (New)", "RGB Mid Tower Case", "550W Power Supply", "Retail Markup"],
-        pcpower: ["AMD Ryzen 7 5700X CPU (Used)", "Radeon RX 6800 XT 16GB GPU (Used)", "16GB DDR4 RAM (Used)", "500GB NVMe SSD (New)", "500GB HDD (Used)", "Tempered Glass Case (New)", "600W Gold PSU (New)", "Flat £49 Building Fee"],
+        pcpower: ["AMD Ryzen 5 5600 CPU (Certified)", "Radeon RX 6800 XT 16GB GPU (Certified)", "16GB DDR4 RAM (Certified)", "1TB NVMe SSD (Brand New)", "Sleek Glass MicroATX Case (Brand New)", "600W Gold PSU (Brand New)", "Flat £30 Assembly Fee"],
         savings: 380, fps: "220 FPS (1080p Ultra)", ecoWaste: "17.2kg", co2: "210kg"
     },
     700: {
         retail: ["AMD Ryzen 5 5600 CPU (New)", "Radeon RX 7600 8GB GPU (New)", "16GB DDR4 RAM (New)", "512GB NVMe SSD (New)", "High-Airflow Case", "600W Power Supply", "Retail Markup"],
-        pcpower: ["AMD Ryzen 7 5800X CPU (Used)", "Radeon RX 6950 XT 16GB GPU (Used)", "16GB DDR4 RAM (Used)", "1TB NVMe Gen4 SSD (New)", "1TB HDD (Used)", "Premium Dual Chamber Case (New)", "700W Gold PSU (New)", "Flat £49 Building Fee"],
+        pcpower: ["AMD Ryzen 5 5600 CPU (Certified)", "Radeon RX 6950 XT 16GB GPU (Certified)", "16GB DDR4 RAM (Certified)", "1TB NVMe SSD (Brand New)", "500GB HDD (Certified)", "Sleek Tempered Glass Case (Brand New)", "600W Gold PSU (Brand New)", "Flat £30 Assembly Fee"],
         savings: 450, fps: "240 FPS (1080p Ultra)", ecoWaste: "19.5kg", co2: "240kg"
     },
     800: {
         retail: ["AMD Ryzen 5 7600 CPU (New)", "NVIDIA RTX 4060 8GB GPU (New)", "16GB DDR5 RAM (New)", "1TB NVMe SSD (New)", "Panoramic Glass Case", "650W Power Supply", "Retail Markup"],
-        pcpower: ["AMD Ryzen 9 5900X CPU (Used)", "Radeon RX 7900 XT 20GB GPU (Used)", "32GB DDR4 RAM (Used)", "1TB NVMe Gen4 SSD (New)", "2TB HDD (Used)", "Panoramic Glass Case (New)", "750W Gold PSU (New)", "Flat £49 Building Fee"],
+        pcpower: ["AMD Ryzen 7 5700X CPU (Certified)", "Radeon RX 6950 XT 16GB GPU (Certified)", "32GB DDR4 RAM (Certified)", "1TB NVMe SSD (Brand New)", "500GB HDD (Certified)", "Tempered Glass Case (Brand New)", "700W Gold PSU (Brand New)", "Flat £30 Assembly Fee"],
         savings: 580, fps: "280 FPS (1080p Ultra)", ecoWaste: "22.3kg", co2: "270kg"
+    },
+    1000: {
+        retail: ["AMD Ryzen 7 7700X CPU (New)", "NVIDIA RTX 4070 GPU (New)", "32GB DDR5 RAM (New)", "1TB NVMe SSD (New)", "Glass Case", "750W Power Supply", "Retail Markup"],
+        pcpower: ["AMD Ryzen 9 5900X CPU (Certified)", "Radeon RX 9070 XT 16GB GPU (Certified)", "16GB DDR4 RAM (Certified)", "1TB NVMe SSD (Brand New)", "Premium Dual Chamber Case (Brand New)", "750W Gold PSU (Brand New)", "Flat £30 Assembly Fee"],
+        savings: 680, fps: "360+ FPS (1440p / 4K Gaming)", ecoWaste: "25.0kg", co2: "310kg"
     }
 };
 
@@ -542,8 +632,34 @@ function selectBasePcInBuilder(pcId) {
     if (stdParts) {
         state.customizer.cpu = stdParts.cpu;
         state.customizer.gpu = stdParts.gpu;
+        // set GPU Brand based on standard GPU brand
+        const stdGpu = upgrades.gpu.find(g => g.id === stdParts.gpu);
+        state.customizer.gpuBrand = (stdGpu && stdGpu.brand) ? stdGpu.brand : 'amd';
+        
         state.customizer.ram = stdParts.ram;
-        state.customizer.storage = stdParts.storage;
+        state.customizer.ssd = stdParts.ssd || 'ssd_256gb';
+        state.customizer.hdd = stdParts.hdd || 'none';
+        state.customizer.useDoubleHdd = false;
+        
+        const countEl = document.getElementById('doubleHddCount');
+        if (countEl) countEl.innerText = '0';
+        const doubleHddContainer = document.getElementById('hddDoubleSwapContainer');
+        if (doubleHddContainer) {
+            doubleHddContainer.style.display = (state.customizer.hdd !== 'none') ? 'block' : 'none';
+        }
+    }
+    
+    // Set active brand tab
+    const amdTab = document.getElementById('gpuTabAmd');
+    const nvidiaTab = document.getElementById('gpuTabNvidia');
+    if (amdTab && nvidiaTab) {
+        if (state.customizer.gpuBrand === 'amd') {
+            amdTab.classList.add('active');
+            nvidiaTab.classList.remove('active');
+        } else {
+            nvidiaTab.classList.add('active');
+            amdTab.classList.remove('active');
+        }
     }
     
     // Render builder options
@@ -554,10 +670,68 @@ function selectBasePcInBuilder(pcId) {
     showSection('builder');
 }
 
+function setGpuBrand(brand) {
+    state.customizer.gpuBrand = brand;
+    const amdTab = document.getElementById('gpuTabAmd');
+    const nvidiaTab = document.getElementById('gpuTabNvidia');
+    if (amdTab && nvidiaTab) {
+        if (brand === 'amd') {
+            amdTab.classList.add('active');
+            nvidiaTab.classList.remove('active');
+        } else {
+            nvidiaTab.classList.add('active');
+            amdTab.classList.remove('active');
+        }
+    }
+    // Set first GPU of this brand as active if current is not in this brand
+    const availableGpus = upgrades.gpu.filter(g => g.brand === brand);
+    const isCurrentGpuInBrand = availableGpus.some(g => g.id === state.customizer.gpu);
+    if (!isCurrentGpuInBrand && availableGpus.length > 0) {
+        state.customizer.gpu = availableGpus[0].id;
+    }
+    renderUpgradeOptions();
+    updateBuilderPricingAndSummary();
+}
+
+function selectSsdUpgrade(optId) {
+    state.customizer.ssd = optId;
+    renderUpgradeOptions();
+    updateBuilderPricingAndSummary();
+}
+
+function selectHddUpgrade(optId) {
+    state.customizer.hdd = optId;
+    const doubleHddContainer = document.getElementById('hddDoubleSwapContainer');
+    if (doubleHddContainer) {
+        if (optId !== 'none') {
+            doubleHddContainer.style.display = 'block';
+        } else {
+            doubleHddContainer.style.display = 'none';
+            state.customizer.useDoubleHdd = false;
+            const countEl = document.getElementById('doubleHddCount');
+            if (countEl) countEl.innerText = '0';
+        }
+    }
+    renderUpgradeOptions();
+    updateBuilderPricingAndSummary();
+}
+
+function setDoubleHddCount(val) {
+    state.customizer.useDoubleHdd = (val === 1);
+    const countEl = document.getElementById('doubleHddCount');
+    if (countEl) {
+        countEl.innerText = val;
+    }
+    updateBuilderPricingAndSummary();
+}
+
 function renderUpgradeOptions() {
-    const categories = ['cpu', 'gpu', 'ram', 'storage'];
+    const categories = ['cpu', 'gpu', 'ram', 'ssd', 'hdd'];
     const stdParts = basePartsMapping[state.selectedBasePcId];
     if (!stdParts) return;
+    
+    const basePc = products.find(p => p.id === state.selectedBasePcId);
+    const basePcPrice = basePc ? basePc.price : 500;
     
     categories.forEach(cat => {
         const container = document.getElementById(`${cat}Upgrades`);
@@ -565,16 +739,40 @@ function renderUpgradeOptions() {
         
         container.innerHTML = '';
         
-        upgrades[cat].forEach(opt => {
+        let listOptions = upgrades[cat];
+        if (cat === 'gpu') {
+            listOptions = listOptions.filter(opt => opt.brand === state.customizer.gpuBrand);
+        }
+        
+        listOptions.forEach(opt => {
             const isSelected = state.customizer[cat] === opt.id;
             const row = document.createElement('div');
             row.className = `upgrade-row ${isSelected ? 'selected' : ''}`;
-            row.onclick = () => selectUpgrade(cat, opt.id);
+            
+            if (cat === 'ssd') {
+                row.onclick = () => selectSsdUpgrade(opt.id);
+            } else if (cat === 'hdd') {
+                row.onclick = () => selectHddUpgrade(opt.id);
+            } else {
+                row.onclick = () => selectUpgrade(cat, opt.id);
+            }
             
             // Calculate price difference relative to standard parts
             const stdPartId = stdParts[cat];
-            const stdPrice = partAbsolutePrices[stdPartId];
-            const optPrice = partAbsolutePrices[opt.id];
+            let stdPrice = 0;
+            let optPrice = 0;
+            
+            if (cat === 'ssd') {
+                stdPrice = getSsdPrice(stdPartId, basePcPrice);
+                optPrice = getSsdPrice(opt.id, basePcPrice);
+            } else if (cat === 'hdd') {
+                stdPrice = getHddPrice(stdPartId, basePcPrice, false);
+                optPrice = getHddPrice(opt.id, basePcPrice, false);
+            } else {
+                stdPrice = partAbsolutePrices[stdPartId] || 0;
+                optPrice = partAbsolutePrices[opt.id] || 0;
+            }
+            
             const priceDiff = optPrice - stdPrice;
             
             let priceText = '';
@@ -586,12 +784,9 @@ function renderUpgradeOptions() {
                 priceText = `£${optPrice.toFixed(2)} (-£${Math.abs(priceDiff).toFixed(2)})`;
             }
             
-            let sourceColor = opt.source === 'Refurbished' ? 'green-text' : 'cyan-text';
-            
             row.innerHTML = `
                 <div class="upgrade-info">
                     <span class="upgrade-name">${opt.name}</span>
-                    <span class="upgrade-source ${sourceColor}">${opt.source}</span>
                 </div>
                 <span class="upgrade-price ${priceDiff < 0 ? 'green-text' : ''}">${priceText}</span>
             `;
@@ -604,6 +799,16 @@ function selectUpgrade(cat, optId) {
     state.customizer[cat] = optId;
     renderUpgradeOptions();
     updateBuilderPricingAndSummary();
+}
+
+function cleanSource(source) {
+    if (source === 'Refurbished' || source === 'Second-Hand') {
+        return 'Certified';
+    }
+    if (source === 'Brand New') {
+        return 'Brand New';
+    }
+    return 'Included';
 }
 
 function updateBuilderPricingAndSummary() {
@@ -648,20 +853,37 @@ function updateBuilderPricingAndSummary() {
     const selectedCpu = upgrades.cpu.find(o => o.id === state.customizer.cpu);
     const selectedGpu = upgrades.gpu.find(o => o.id === state.customizer.gpu);
     const selectedRam = upgrades.ram.find(o => o.id === state.customizer.ram);
-    const selectedStorage = upgrades.storage.find(o => o.id === state.customizer.storage);
+    const selectedSsd = upgrades.ssd.find(o => o.id === state.customizer.ssd);
+    const selectedHdd = upgrades.hdd.find(o => o.id === state.customizer.hdd);
     
     // Calculate cost delta
     upgradeCost += (partAbsolutePrices[selectedCpu.id] - partAbsolutePrices[stdParts.cpu]);
     upgradeCost += (partAbsolutePrices[selectedGpu.id] - partAbsolutePrices[stdParts.gpu]);
     upgradeCost += (partAbsolutePrices[selectedRam.id] - partAbsolutePrices[stdParts.ram]);
-    upgradeCost += (partAbsolutePrices[selectedStorage.id] - partAbsolutePrices[stdParts.storage]);
+    
+    // Storage cost delta
+    const stdSsdCost = getSsdPrice(stdParts.ssd, basePc.price);
+    const selectedSsdCost = getSsdPrice(selectedSsd.id, basePc.price);
+    upgradeCost += (selectedSsdCost - stdSsdCost);
+    
+    const stdHddCost = getHddPrice(stdParts.hdd, basePc.price, false);
+    const selectedHddCost = getHddPrice(selectedHdd.id, basePc.price, state.customizer.useDoubleHdd);
+    upgradeCost += (selectedHddCost - stdHddCost);
     
     const specsToDisplay = [
-        { name: selectedCpu.name + ' CPU', source: 'Refurbished', price: partAbsolutePrices[selectedCpu.id] },
-        { name: selectedGpu.name + ' GPU', source: 'Refurbished', price: partAbsolutePrices[selectedGpu.id] },
-        { name: selectedRam.name, source: 'Refurbished', price: partAbsolutePrices[selectedRam.id] },
-        { name: selectedStorage.name, source: 'Brand New', price: partAbsolutePrices[selectedStorage.id] }
+        { name: selectedCpu.name + ' CPU', source: 'Second-Hand', price: partAbsolutePrices[selectedCpu.id] },
+        { name: selectedGpu.name + ' GPU', source: 'Second-Hand', price: partAbsolutePrices[selectedGpu.id] },
+        { name: selectedRam.name, source: 'Second-Hand', price: partAbsolutePrices[selectedRam.id] },
+        { name: selectedSsd.name, source: 'Brand New', price: selectedSsdCost }
     ];
+    
+    if (selectedHdd.id !== 'none') {
+        if (state.customizer.useDoubleHdd) {
+            specsToDisplay.push({ name: '2x 1TB HDD Storage', source: 'Second-Hand', price: selectedHddCost });
+        } else {
+            specsToDisplay.push({ name: selectedHdd.name + ' Storage', source: 'Second-Hand', price: selectedHddCost });
+        }
+    }
     
     // We can lookup standard parts prices by name
     const getStdPartPrice = (name) => {
@@ -677,35 +899,33 @@ function updateBuilderPricingAndSummary() {
             "Sleek Airflow Case": 45,
             "Tempered Glass Case": 50,
             "Premium Dual Chamber Case": 85,
-            "Panoramic Glass Case": 100,
-            "500GB HDD Storage": 15,
-            "1TB HDD Storage": 25,
-            "2TB HDD Storage": 40
+            "Panoramic Glass Case": 100
         };
         return prices[name] || 0;
     };
     
-    // Append standard parts (PSU, Case, HDD)
-    const psuPart = basePc.specs[4];
-    const casePart = basePc.specs[5];
-    const hddPart = basePc.specs[6];
+    // Append standard parts (PSU, Case)
+    const psuSpec = basePc.specs.find(s => s.name.includes('PSU'));
+    const caseSpec = basePc.specs.find(s => s.name.includes('Case'));
     
-    specsToDisplay.push({ ...psuPart, price: getStdPartPrice(psuPart.name) });
-    specsToDisplay.push({ ...casePart, price: getStdPartPrice(casePart.name) });
-    if (hddPart) {
-        specsToDisplay.push({ ...hddPart, price: getStdPartPrice(hddPart.name) });
+    if (psuSpec) {
+        specsToDisplay.push({ name: psuSpec.name, source: 'Brand New', price: getStdPartPrice(psuSpec.name) });
+    }
+    if (caseSpec) {
+        specsToDisplay.push({ name: caseSpec.name, source: 'Brand New', price: getStdPartPrice(caseSpec.name) });
     }
     
     // Populate UI summary list
     if (summaryList) {
         specsToDisplay.forEach(spec => {
             const li = document.createElement('li');
-            const sourceClass = spec.source === 'Refurbished' ? 'green-text' : 'cyan-text';
+            const cleanSrc = cleanSource(spec.source);
+            const sourceClass = (cleanSrc === 'Brand New') ? 'cyan-text' : 'green-text';
             const priceVal = spec.price;
-            const priceText = priceVal > 0 ? `(£${priceVal.toFixed(2)})` : '';
+            const priceText = priceVal > 0 ? `(£${priceVal.toFixed(2)})` : '(Included)';
             li.innerHTML = `
                 <span>${spec.name} <span class="summary-part-price" style="font-size:0.85rem; opacity:0.75; margin-left:4px;">${priceText}</span></span>
-                <span class="${sourceClass}">${spec.source}</span>
+                <span class="${sourceClass}">${cleanSrc}</span>
             `;
             summaryList.appendChild(li);
         });
@@ -1133,4 +1353,8 @@ window.backToShipping = backToShipping;
 window.finishCheckout = finishCheckout;
 window.toggleFaq = toggleFaq;
 window.filterProducts = filterProducts;
+window.setGpuBrand = setGpuBrand;
+window.selectSsdUpgrade = selectSsdUpgrade;
+window.selectHddUpgrade = selectHddUpgrade;
+window.setDoubleHddCount = setDoubleHddCount;
 
