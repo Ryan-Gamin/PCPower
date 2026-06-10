@@ -148,7 +148,7 @@ const products = [
         image: '',
         category: 'high',
         specs: [
-            { name: 'AMD Ryzen 7 5700X CPU', source: 'Second-Hand' },
+            { name: 'AMD Ryzen 9 5900X CPU', source: 'Second-Hand' },
             { name: 'Radeon RX 6950 XT 16GB GPU', source: 'Second-Hand' },
             { name: '32GB DDR4 RAM', source: 'Second-Hand' },
             { name: '1TB NVMe SSD', source: 'Brand New' },
@@ -167,7 +167,7 @@ const products = [
         image: '',
         category: 'high',
         specs: [
-            { name: 'AMD Ryzen 9 5900X CPU', source: 'Second-Hand' },
+            { name: 'AMD Ryzen 7 5800X3D CPU', source: 'Second-Hand' },
             { name: 'Radeon RX 9070 XT 16GB GPU', source: 'Second-Hand' },
             { name: '16GB DDR4 RAM', source: 'Second-Hand' },
             { name: '1TB NVMe SSD', source: 'Brand New' },
@@ -187,7 +187,8 @@ const upgrades = {
         { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 90, source: 'Second-Hand' },
         { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 130, source: 'Second-Hand' },
         { id: 'ryzen_5800x', name: 'AMD Ryzen 7 5800X', price: 140, source: 'Second-Hand' },
-        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 210, source: 'Second-Hand' }
+        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 210, source: 'Second-Hand' },
+        { id: 'ryzen_5800x3d', name: 'AMD Ryzen 7 5800X3D', price: 245, source: 'Second-Hand' }
     ],
     gpu: [
         { id: 'gpu_integrated', name: 'Radeon Vega Integrated', price: 0, source: 'Shared', brand: 'amd' },
@@ -240,13 +241,13 @@ const basePartsMapping = {
     tier500: { cpu: 'ryzen_5600', gpu: 'rx_6700xt', ram: 'ram_16gb', ssd: 'ssd_500gb', hdd: 'hdd_500gb' },
     tier600: { cpu: 'ryzen_5600', gpu: 'rx_6800xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'none' },
     tier700: { cpu: 'ryzen_5600', gpu: 'rx_6950xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'hdd_500gb' },
-    tier800: { cpu: 'ryzen_5700x', gpu: 'rx_6950xt', ram: 'ram_32gb', ssd: 'ssd_1tb', hdd: 'hdd_500gb' },
-    tier1000: { cpu: 'ryzen_5900x', gpu: 'rx_9070xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'hdd_2tb' }
+    tier800: { cpu: 'ryzen_5900x', gpu: 'rx_6950xt', ram: 'ram_32gb', ssd: 'ssd_1tb', hdd: 'hdd_500gb' },
+    tier1000: { cpu: 'ryzen_5800x3d', gpu: 'rx_9070xt', ram: 'ram_16gb', ssd: 'ssd_1tb', hdd: 'hdd_2tb' }
 };
 
 // Part absolute pricing
 const partAbsolutePrices = {
-    ryzen_3200g: 50, ryzen_3600: 60, ryzen_4100: 65, ryzen_5600: 90, ryzen_5700x: 130, ryzen_5800x: 140, ryzen_5900x: 210,
+    ryzen_3200g: 50, ryzen_3600: 60, ryzen_4100: 65, ryzen_5600: 90, ryzen_5700x: 130, ryzen_5800x: 140, ryzen_5900x: 210, ryzen_5800x3d: 245,
     gpu_integrated: 0,
     rx_570: 60, rx_580: 65, rx_6600: 140, rx_6600xt: 170, rx_6650xt: 180, rx_6700xt: 200, rx_6800: 270, rx_6800xt: 300, rx_6950xt: 380, rx_7900xt: 570, rx_9070xt: 720,
     gtx_1060: 70, gtx_1660s: 110, rtx_2060: 140, rtx_3060: 190, rtx_3070: 260, rtx_3080: 380, rtx_4070: 530, rtx_4070ti: 680, rtx_4080: 850, rtx_4090: 1450,
