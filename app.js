@@ -159,13 +159,13 @@ const products = [
 // Configurator Upgrades Data
 const upgrades = {
     cpu: [
-        { id: 'ryzen_2200g', name: 'AMD Ryzen 3 2200G', price: 40, source: 'Refurbished' },
-        { id: 'ryzen_2600', name: 'AMD Ryzen 3 2600', price: 73, source: 'Refurbished' },
-        { id: 'ryzen_4100', name: 'AMD Ryzen 5 4100', price: 93, source: 'Refurbished' },
-        { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 139, source: 'Refurbished' },
-        { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 191, source: 'Refurbished' },
-        { id: 'ryzen_5800x', name: 'AMD Ryzen 7 5800X', price: 230, source: 'Refurbished' },
-        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 308, source: 'Refurbished' }
+        { id: 'ryzen_2200g', name: 'AMD Ryzen 3 2200G', price: 35, source: 'Refurbished' },
+        { id: 'ryzen_2600', name: 'AMD Ryzen 3 2600', price: 50, source: 'Refurbished' },
+        { id: 'ryzen_4100', name: 'AMD Ryzen 5 4100', price: 55, source: 'Refurbished' },
+        { id: 'ryzen_5600', name: 'AMD Ryzen 5 5600', price: 90, source: 'Refurbished' },
+        { id: 'ryzen_5700x', name: 'AMD Ryzen 7 5700X', price: 130, source: 'Refurbished' },
+        { id: 'ryzen_5800x', name: 'AMD Ryzen 7 5800X', price: 140, source: 'Refurbished' },
+        { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 210, source: 'Refurbished' }
     ],
     gpu: [
         { id: 'rx_570', name: 'Radeon RX 570 4GB', price: 60, source: 'Refurbished' },
@@ -201,7 +201,7 @@ const basePartsMapping = {
 
 // Part absolute pricing
 const partAbsolutePrices = {
-    ryzen_2200g: 40, ryzen_2600: 73, ryzen_4100: 93, ryzen_5600: 139, ryzen_5700x: 191, ryzen_5800x: 230, ryzen_5900x: 308,
+    ryzen_2200g: 35, ryzen_2600: 50, ryzen_4100: 55, ryzen_5600: 90, ryzen_5700x: 130, ryzen_5800x: 140, ryzen_5900x: 210,
     rx_570: 60, rx_580: 86, rx_6500xt: 125, rx_6700xt: 294, rx_6800xt: 424, rx_6950xt: 580, rx_7900xt: 788,
     ram_8gb: 20, ram_16gb: 40, ram_32gb: 75,
     ssd_256gb: 15, ssd_500gb: 30, ssd_1tb: 68
