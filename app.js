@@ -579,11 +579,11 @@ function renderUpgradeOptions() {
             
             let priceText = '';
             if (priceDiff === 0) {
-                priceText = "Standard";
+                priceText = `£${optPrice.toFixed(2)} (Standard)`;
             } else if (priceDiff > 0) {
-                priceText = `+£${priceDiff.toFixed(2)}`;
+                priceText = `£${optPrice.toFixed(2)} (+£${priceDiff.toFixed(2)})`;
             } else {
-                priceText = `-£${Math.abs(priceDiff).toFixed(2)}`;
+                priceText = `£${optPrice.toFixed(2)} (-£${Math.abs(priceDiff).toFixed(2)})`;
             }
             
             let sourceColor = opt.source === 'Refurbished' ? 'green-text' : 'cyan-text';
@@ -657,17 +657,43 @@ function updateBuilderPricingAndSummary() {
     upgradeCost += (partAbsolutePrices[selectedStorage.id] - partAbsolutePrices[stdParts.storage]);
     
     const specsToDisplay = [
-        { name: selectedCpu.name + ' CPU', source: 'Refurbished' },
-        { name: selectedGpu.name + ' GPU', source: 'Refurbished' },
-        { name: selectedRam.name, source: 'Refurbished' },
-        { name: selectedStorage.name, source: 'Brand New' }
+        { name: selectedCpu.name + ' CPU', source: 'Refurbished', price: partAbsolutePrices[selectedCpu.id] },
+        { name: selectedGpu.name + ' GPU', source: 'Refurbished', price: partAbsolutePrices[selectedGpu.id] },
+        { name: selectedRam.name, source: 'Refurbished', price: partAbsolutePrices[selectedRam.id] },
+        { name: selectedStorage.name, source: 'Brand New', price: partAbsolutePrices[selectedStorage.id] }
     ];
     
+    // We can lookup standard parts prices by name
+    const getStdPartPrice = (name) => {
+        const prices = {
+            "450W Gold Rated PSU": 35,
+            "500W Bronze PSU": 30,
+            "600W Gold PSU": 50,
+            "700W Gold PSU": 65,
+            "750W Gold PSU": 75,
+            "Sleek Micro-ATX Case": 35,
+            "Sleek Glass MicroATX Case": 40,
+            "Sleek Tempered Glass Case": 45,
+            "Sleek Airflow Case": 45,
+            "Tempered Glass Case": 50,
+            "Premium Dual Chamber Case": 85,
+            "Panoramic Glass Case": 100,
+            "500GB HDD Storage": 15,
+            "1TB HDD Storage": 25,
+            "2TB HDD Storage": 40
+        };
+        return prices[name] || 0;
+    };
+    
     // Append standard parts (PSU, Case, HDD)
-    specsToDisplay.push(basePc.specs[4]);
-    specsToDisplay.push(basePc.specs[5]);
-    if (basePc.specs[6]) {
-        specsToDisplay.push(basePc.specs[6]);
+    const psuPart = basePc.specs[4];
+    const casePart = basePc.specs[5];
+    const hddPart = basePc.specs[6];
+    
+    specsToDisplay.push({ ...psuPart, price: getStdPartPrice(psuPart.name) });
+    specsToDisplay.push({ ...casePart, price: getStdPartPrice(casePart.name) });
+    if (hddPart) {
+        specsToDisplay.push({ ...hddPart, price: getStdPartPrice(hddPart.name) });
     }
     
     // Populate UI summary list
@@ -675,8 +701,10 @@ function updateBuilderPricingAndSummary() {
         specsToDisplay.forEach(spec => {
             const li = document.createElement('li');
             const sourceClass = spec.source === 'Refurbished' ? 'green-text' : 'cyan-text';
+            const priceVal = spec.price;
+            const priceText = priceVal > 0 ? `(£${priceVal.toFixed(2)})` : '';
             li.innerHTML = `
-                <span>${spec.name}</span>
+                <span>${spec.name} <span class="summary-part-price" style="font-size:0.85rem; opacity:0.75; margin-left:4px;">${priceText}</span></span>
                 <span class="${sourceClass}">${spec.source}</span>
             `;
             summaryList.appendChild(li);
