@@ -168,13 +168,13 @@ const upgrades = {
         { id: 'ryzen_5900x', name: 'AMD Ryzen 9 5900X', price: 210, source: 'Refurbished' }
     ],
     gpu: [
-        { id: 'rx_570', name: 'Radeon RX 570 4GB', price: 60, source: 'Refurbished' },
-        { id: 'rx_580', name: 'Radeon RX 580 8GB', price: 86, source: 'Refurbished' },
-        { id: 'rx_6500xt', name: 'Radeon RX 6500 XT 4GB', price: 125, source: 'Refurbished' },
-        { id: 'rx_6700xt', name: 'Radeon RX 6700 XT 12GB', price: 294, source: 'Refurbished' },
-        { id: 'rx_6800xt', name: 'Radeon RX 6800 XT 16GB', price: 424, source: 'Refurbished' },
-        { id: 'rx_6950xt', name: 'Radeon RX 6950 XT 16GB', price: 580, source: 'Refurbished' },
-        { id: 'rx_7900xt', name: 'Radeon RX 7900 XT 20GB', price: 788, source: 'Refurbished' }
+        { id: 'rx_570', name: 'Radeon RX 570 4GB', price: 45, source: 'Refurbished' },
+        { id: 'rx_580', name: 'Radeon RX 580 8GB', price: 65, source: 'Refurbished' },
+        { id: 'rx_6500xt', name: 'Radeon RX 6500 XT 4GB', price: 95, source: 'Refurbished' },
+        { id: 'rx_6700xt', name: 'Radeon RX 6700 XT 12GB', price: 180, source: 'Refurbished' },
+        { id: 'rx_6800xt', name: 'Radeon RX 6800 XT 16GB', price: 260, source: 'Refurbished' },
+        { id: 'rx_6950xt', name: 'Radeon RX 6950 XT 16GB', price: 330, source: 'Refurbished' },
+        { id: 'rx_7900xt', name: 'Radeon RX 7900 XT 20GB', price: 500, source: 'Refurbished' }
     ],
     ram: [
         { id: 'ram_8gb', name: '8GB DDR4 RAM', price: 20, source: 'Refurbished' },
@@ -202,7 +202,7 @@ const basePartsMapping = {
 // Part absolute pricing
 const partAbsolutePrices = {
     ryzen_3200g: 50, ryzen_3600: 60, ryzen_4100: 65, ryzen_5600: 90, ryzen_5700x: 130, ryzen_5800x: 140, ryzen_5900x: 210,
-    rx_570: 60, rx_580: 86, rx_6500xt: 125, rx_6700xt: 294, rx_6800xt: 424, rx_6950xt: 580, rx_7900xt: 788,
+    rx_570: 45, rx_580: 65, rx_6500xt: 95, rx_6700xt: 180, rx_6800xt: 260, rx_6950xt: 330, rx_7900xt: 500,
     ram_8gb: 20, ram_16gb: 40, ram_32gb: 75,
     ssd_256gb: 15, ssd_500gb: 30, ssd_1tb: 68
 };
